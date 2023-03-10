@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+
+  <title>チーズの定期便〝プティ・ボン・プティ - Petit Bon Petit〟</title>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      // 1文字ずつタグで囲うスクリプト
+      const ag2chara = {
+        wrap: function (t, c, h, n, i) {
+          if (c) c = ' class="' + c + '"';
+
+          //テキストノードから文字列を取得して置換処理
+          let chara = t.textContent;
+          chara = chara.replace(/([\uD800-\uDBFF][\uDC00-\uDFFF]|[^\uD800-\uDFFF])/g, '<' + h + c + '>$1</' + h + '>');
+
+          //置換後の文字列を適当なHTMLタグに挿入してノード化(オブジェクト化)
+          let tmpEle = document.createElement('div');
+          tmpEle.innerHTML = chara;
+          let tmpEleChildren = Array.from(tmpEle.childNodes);
+          let tmpEleChildrenNum = tmpEleChildren.length;
+
+          //ノード化した文字列で元のテキストを書き換え
+          n.item(i).parentNode.replaceChild(tmpEleChildren[0], n.item(i));
+
+          //置換後の文字列のノードが複数なら続けて挿入
+          if (tmpEleChildrenNum > 1) {
+            for (let j = 1, k = i; j < tmpEleChildrenNum; j++, k++) {
+              n.item(k).parentNode.insertBefore(tmpEleChildren[j], n.item(k).nextElementSibling);
+            }
+          }
+          return tmpEleChildrenNum;
+        },
+        nodeCheck: function (t, c = '', h = 'span') {
+          //指定した要素の子ノードを取得
+          let children = t.childNodes,
+            childrenNum = children.length;
+
+          //取得した子ノードのノードタイプをチェックして処理
+          for (let i = 0; i < childrenNum; i++) {
+            thisItem = children.item(i);
+            if (thisItem.nodeType === 3) {
+              //処理した文字数分だけ子ノードが増えるので調整
+              i = i + ag2chara.wrap(thisItem, c, h, children, i) - 1;
+              //処理後のリアルタイムの子ノードの数を再取得
+              childrenNum = children.length;
+            } else if (thisItem.nodeType === 1) {
+              ag2chara.nodeCheck(thisItem, c, h);
+            }
+          }
+        }
+      };
+
+      //処理の対象とする要素のクラス名を指定して取得
+      const targetEle = document.getElementsByClassName('JS_SPLIT-TEXT'),
+        targetEleNum = targetEle.length;
+      //コーディング処理時に付与するクラス名
+      const charaClass = '';
+
+      //指定したクラス名を持つすべての要素で処理
+      for (let i = 0; i < targetEleNum; i++) {
+        ag2chara.nodeCheck(targetEle[i], charaClass);
+      }
+
+
+
+      /* サブセットテキストはフォントごとに分けられない前提で進める */
+
+      /* クレー、明朝体がある場合はできればweb fontは読み込まない */
+
+      let webFntTxt = ''; //サブセットテキスト
+
+      // Web Fontにしたい要素の、テキストを取得
+      let webFntEl = document.querySelectorAll('.JS_WEB-FONT');
+      for (let i in webFntEl) {
+        if (webFntEl.hasOwnProperty(i)) {
+          webFntTxt += webFntEl[i].textContent;
+        }
+      }
+
+      window.WebFontConfig = {
+        google: {
+          families: ['Klee One:400,600'],
+          text: webFntTxt
+        },
+        active: function () {
+        }
+      };
+      // >>>> Android用スクリプト
+      if (navigator.userAgent.indexOf('Android') > 0) {
+        let serifTxt = '';
+        let serifFnt = 'Noto Serif JP'; //Android明朝体用WebFont
+
+        // Androidで明朝体表示にしたい要素の、テキストを取得 & インラインcssでfont-family:Android明朝体用WebFont;を追加
+        let serifFntEl = document.querySelectorAll('.JS_FONT-SERIF-JP');
+        for (let i in serifFntEl) {
+          if (serifFntEl.hasOwnProperty(i)) {
+            if (serifFntEl[i].textContent != '') {
+              serifTxt += serifFntEl[i].textContent;
+              serifFntEl[i].style.fontFamily = serifFnt;
+            }
+            else if (serifFntEl[i].getAttribute('value') != null) {
+              serifTxt += serifFntEl[i].getAttribute('value');
+              serifFntEl[i].style.fontFamily = serifFnt;
+            }
+          }
+        }
+
+        // お菓子教室 レッスン詳細のレッスン名の字詰調整 ※Androidのみ適用
+        /*
+        if (document.querySelector('section.lesson-details')) {
+          let elem = document.querySelectorAll('section.lesson-details > div');
+          for (let i in elem) {
+            if (elem.hasOwnProperty(i)) {
+
+              if (elem[i].getAttribute('id') == 'wedding') {
+                elem[i].querySelector('dt').style.letterSpacing = '-0.05em';
+                elem[i].querySelector('dt span').style.letterSpacing = '-0.15em';
+              }
+              else {
+                elem[i].querySelector('dt').style.letterSpacing = '0';
+              }
+            }
+          }
+        }
+        */
+
+        WebFontConfig.google.families.push(serifFnt + ':400,700'); //WebFontLoaderで読み込む書体に、Android明朝体用WebFontを追加
+        WebFontConfig.google.text += serifTxt; //サブセットテキストを指定
+      }
+      // <<<< Android用スクリプト
+
+      else {
+        // Android以外は、明朝体用cssカスタムプロパティ値にserifを追加し、端末の明朝体を適用
+        document.documentElement.style.setProperty('--font-famiry_serif', window.getComputedStyle(document.documentElement).getPropertyValue('--font-famiry_serif') + ', serif');
+      }
+
+      // WebFontを読み込み
+      if (typeof WebFont === 'object') {
+        WebFont.load(WebFontConfig);
+      }
+      // <<<< ここまで、--font-famiry_serifの最初に'Noto Serif JP'をtextのサブセットで追加する基本のスクリプト。
+      // あとwebfont.jsの読み込みもセット。
+
+    });
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" async></script>
+
+  <!-- ページごとにhtmlは分けないので、single.cssは作らない -->
+  <link rel="stylesheet" href="./css/style.css">
+
+  <meta name="description" content="ページの説明文">
+  <meta property="og:title" content="チーズの定期便〝プティ・ボン・プティ - Petit Bon Petit〟">
+  <meta property="og:description" content="ページの説明文">
+  <meta property="og:image" content="https://mywebsite.com/image.jpg">
+  <meta property="og:image:alt" content="画像の説明文">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:url" content="https://mywebsite.com/page">
+  <link rel="canonical" href="https://mywebsite.com/page">
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/my.webmanifest">
+</head>
+
+<body>
+  <section id="home" class="home">
+    <div class="home-maincopy">
+      <h1 class="home-maincopy__title">
+        <picture>
+          <source>
+          <img class="home-maincopy__logo" src="./img/Home logo(仮).webp" alt="チーズの定期便〝プティ・ボン・プティ - Petit Bon Petit〟">
+        </picture>
+      </h1>
+      <p class="home-maincopy__text JS_WEB-FONT"><strong
+          class="home-maincopy__text-main JS_SPLIT-TEXT">〝美味しく、すてき〟</strong><span
+          class="home-maincopy__text-sub1">を</span><span class="home-maincopy__text-sub2">ちょっとずつ</span><span
+          class="home-maincopy__text-sub2">おうちにお届け<span>。</span></span></p>
+    </div>
+    <div class="home-mainvisual">
+      <picture class="home-mainvisual__photo">
+        <source>
+        <img src="./img/アセット 14.webp" alt="">
+      </picture>
+    </div>
+  </section>
+  <!-- class toggleでnavは使い回す -->
+  <nav class="nav-global home-nav-global">
+    <ul class="nav-global__menu JS_WEB-FONT">
+      <li class="nav-global__menu-item"><a class="nav-global__link">概要</a></li>
+      <li class="nav-global__menu-item"><a class="nav-global__link">ポイント</a></li>
+      <li class="nav-global__menu-item"><a class="nav-global__link">ご利用シーン</a></li>
+      <li class="nav-global__menu-item"><a class="nav-global__link">お届け内容</a></li>
+      <li class="nav-global__menu-item"><a class="nav-global__link">コース</a></li>
+      <li class="nav-global__menu-item"><a class="nav-global__link">よくある質問</a></li>
+      <li class="nav-global__menu-order"><a class="nav-global__link-order">お申し込み</a></li>
+    </ul>
+  </nav>
+  <div class="scrolled">Scrolled</div>
+</body>
+
+</html>

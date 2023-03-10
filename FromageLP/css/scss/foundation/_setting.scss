@@ -1,0 +1,29 @@
+// Sass変数
+$P_margin-LR: 10px; //Phonesの基本左右margin
+$D_margin-LR: 30px; //Desktopの基本左右margin
+
+/* custom properties >>>>>>>>>> */
+:root {
+
+	--font-family_serif: 'Times New Roman',
+	'Hiragino Mincho ProN',
+	'Hiragino Mincho Pro',
+	'Yu Mincho';
+
+	--font-family_sans-serif: 'Helvetica Neue',
+	Arial,
+	'Hiragino Kaku Gothic ProN',
+	'Hiragino Sans',
+	Meiryo,
+	sans-serif;
+
+	--font-famiry_Klee: Klee,
+	'Klee One',
+	var(--font-family_serif);
+
+	--root_font-size: 16; /* Desktop 本文フォントサイズ用変数 */
+
+	--margin_contents-center: calc(calc(100vw - 980px) /2); /* Desktop コンテンツの左右margin (margin:autoを使用しない場合向け) */
+
+	}
+/* <<<<<<<<<< custom properties */

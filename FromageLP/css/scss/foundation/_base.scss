@@ -1,0 +1,20 @@
+@use 'mixin' as m;
+
+/*
+ * HTML
+ * -------------------------------------------------------------------
+ */
+
+@include m.mediaMobile {
+	html {
+		font-size: 3.125vw;
+		}
+	}
+
+body {
+	color: #717071;
+	font-family: var(--font-family_sans-serif);
+	}
+
+.JS_WEB-FONT {/**/
+	}
