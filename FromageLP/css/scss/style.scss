@@ -4,6 +4,22 @@
 
 
 /*
+ * navi-global ここでいい？
+ https://coliss.com/articles/build-websites/operation/css/css3-flexbox-properties-by-scotch.html
+ * -------------------------------------------------------------------
+ */
+.nav-global {
+	&__menu {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: center;
+		align-items: flex-start;
+	}
+
+}
+
+/*
  * Home
  * -------------------------------------------------------------------
  */
