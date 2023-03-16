@@ -4,6 +4,22 @@
 
 
 /*
+ * navi-global ここでいい？
+ https://coliss.com/articles/build-websites/operation/css/css3-flexbox-properties-by-scotch.html
+ * -------------------------------------------------------------------
+ */
+.nav-global {
+	&__menu {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: center;
+		align-items: flex-start;
+	}
+
+}
+
+/*
  * Home
  * -------------------------------------------------------------------
  */
@@ -27,6 +43,22 @@
 		position: absolute;
 		top: 134px;
 		left: 150px;
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			bottom: 0;
+			width: 8vw;
+			height: 8vw;
+			mask: url('../img/アセット 6.svg');
+				mask-size: contain;
+				mask-repeat: no-repeat;
+				mask-position: center;
+				// z-indexはイラスト共通の定数にする
+			z-index: 1000;
+			background-color: #FCF8BD;
+			transform: translate(0vw, 10vw);
+			}
 		&-main {
 			display: inline-block;
 			color: #fff;
@@ -172,10 +204,14 @@
 		top: 0;
 		width: 8vw;
 		height: 8vw;
-		background: url('../img/アセット 50.svg') 0 0 no-repeat;
+		mask: url('../img/アセット 50.svg');
+			mask-size: contain;
+			mask-repeat: no-repeat;
+			mask-position: center;
+			// z-indexはイラスト共通の定数にする
+		z-index: 1000;
+		background-color: #FCF8BD;
 		transform: translate(32.8vw, -2.3vw) scale( -1, 1) rotate(-25deg);
-		// z-indexはイラスト共通の定数にする
-		z-index: 100;
 		}
 	&__photo {
 		width: 100%;
@@ -185,32 +221,18 @@
 			content: '';
 			display: block;
 			position: absolute;
-			// top: 4px;
-			width: 10vw;
-			height: 10vw;
-			transform: translate(2.8vw, -10vw) rotate(-25deg);
-
-			// mask-image: url('../img/cat.svg');
-			// mask-size: contain;
-			// mask-repeat: no-repeat;
-			// mask-position: center;
-			top: 0;
+			width: 11vw;
+			height: 11vw;
+			transform: translate(-4vw, 2.2vw);
+			bottom: 0;
 			left: 0;
-			/* -webkit-mask: url('data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%2210px%22%20height%3D%2210px%22%20viewBox%3D%220%200%2010%2010%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20transform%3D%22translate(-30.000000%2C%20-48.000000)%22%20fill-rule%3D%22nonzero%22%3E%3Cg%20transform%3D%22translate(30.000000%2C%2047.000000)%22%3E%3Cpolygon%20points%3D%2210%202.02604317%208.97396484%201%205.00003906%204.97385917%201.02613281%201%200%202.02604317%203.97402344%206.00009766%200%209.97395683%201.02603516%2011%205.00003906%207.02592598%208.97396484%2011%2010%209.97415214%206.02609375%206.00009766%22%3E%3C%2Fpolygon%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E');
-							mask: url('data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%2210px%22%20height%3D%2210px%22%20viewBox%3D%220%200%2010%2010%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20transform%3D%22translate(-30.000000%2C%20-48.000000)%22%20fill-rule%3D%22nonzero%22%3E%3Cg%20transform%3D%22translate(30.000000%2C%2047.000000)%22%3E%3Cpolygon%20points%3D%2210%202.02604317%208.97396484%201%205.00003906%204.97385917%201.02613281%201%200%202.02604317%203.97402344%206.00009766%200%209.97395683%201.02603516%2011%205.00003906%207.02592598%208.97396484%2011%2010%209.97415214%206.02609375%206.00009766%22%3E%3C%2Fpolygon%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E'); ×のシェイプ。塗りをマスクに使用 */
-
-			/* -webkit-mask: url('https://bloosh.jp/wp-content/themes/blooshcompany/img/cat.svg');
-							mask: url('https://bloosh.jp/wp-content/themes/blooshcompany/img/cat.svg'); *//*NG*/
-
-							mask: url('../x.svg');
-							mask: url('../img/アセット 50.svg');
-							mask-size: 20px;
-							mask-position: 0 0;
+			mask: url('../img/アセット 50.svg');
+				mask-size: contain;
+				mask-repeat: no-repeat;
+				mask-position: center;
+				// z-indexはイラスト共通の定数にする
 			z-index: 1000;
-			/* Remote Repositories でVSCodeで直接開いて保存 */
-
-			/*変更したい色をここに書く*/
-			background-color: pink;
+			background-color: #FCF8BD;
 			}
 		}
 	}
