@@ -2,24 +2,6 @@
 
 @use 'foundation';
 
-
-/*
- * navi-global ここでいい？
- https://coliss.com/articles/build-websites/operation/css/css3-flexbox-properties-by-scotch.html
- * -------------------------------------------------------------------
- */
-.nav-global {
-	&__menu {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: nowrap;
-		justify-content: center;
-		align-items: flex-start;
-	}
-
-}
-
-
 /*
  * navi-global ここでいい？
  https://coliss.com/articles/build-websites/operation/css/css3-flexbox-properties-by-scotch.html
@@ -36,13 +18,17 @@
 		flex-direction: row;
 		flex-wrap: nowrap;
 		justify-content: center;
-		align-items: flex-start;
-
+		align-items: center;
 		font-weight: normal;
 		font-feature-settings: 'palt';
 		font-family: var(--font-famiry_Klee);
+		height: 100%;
+		color: #ff0000;
 		&-item {
 			padding: 0 30px;
+		}
+		&-order{
+			background-color: #ff931e;
 		}
 	}
 
