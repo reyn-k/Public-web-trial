@@ -35,26 +35,38 @@ z-index: 900;
 			right: 0;
 			width: 10vw;
 			height: 10vw;
+			border-radius: 50%;
 			&::after {
 				content: '';
 				display: block;
 				position: absolute;
-				top: -10vw;
-				width: 4vw;
-				height: 4vw;
-				mask: url('../img/アセット 6.svg');
-					mask-size: contain;
-					mask-repeat: no-repeat;
-					mask-position: center;
-					// z-indexはイラスト共通の定数にする
-				z-index: 1000;
-				background-color: #FCF8BD;
-				transform: translate(0vw, 10vw);
+				width: 100%;
+				height: 100%;
+				background-color: #fff;
+				}
+				&-link{
+					&::after {
+						content: '';
+						display: block;
+						position: absolute;
+						top: -10vw;
+						width: 4vw;
+						height: 4vw;
+						mask: url('../img/アセット 6.svg');
+							mask-size: contain;
+							mask-repeat: no-repeat;
+							mask-position: center;
+							// z-indexはイラスト共通の定数にする
+						z-index: 1000;
+						background-color: #FCF8BD;
+						transform: translate(0vw, 10vw);
+						}
+					}
 				}
 		}
 	}
 
-}
+
 .scrolled {
 	position: fixed;
 }
