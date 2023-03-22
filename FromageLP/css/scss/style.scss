@@ -30,40 +30,64 @@ z-index: 900;
 		}
 		&-order{
 			color: #fff;
-			background-color: #ff931e;
 			position: relative;
 			right: 0;
 			width: 10vw;
 			height: 10vw;
 			border-radius: 50%;
+			filter: drop-shadow(1px 1px 2px rgba(209,193,166,1));
 			&::after {
 				content: '';
 				display: block;
 				position: absolute;
-				width: 100%;
-				height: 100%;
-				background-color: #fff;
+				top: -10vw;
+				width: 4vw;
+				height: 4vw;
+				mask: url('../img/アセット 6.svg');
+					mask-size: contain;
+					mask-repeat: no-repeat;
+					mask-position: center;
+					// z-indexはイラスト共通の定数にする
+				z-index: 1000;
+				background-color: #FCF8BD;
+				transform: translate(0vw, 10vw);
 				}
-				&-link{
-					&::after {
-						content: '';
-						display: block;
-						position: absolute;
-						top: -10vw;
-						width: 4vw;
-						height: 4vw;
-						mask: url('../img/アセット 6.svg');
-							mask-size: contain;
-							mask-repeat: no-repeat;
-							mask-position: center;
-							// z-indexはイラスト共通の定数にする
-						z-index: 1000;
-						background-color: #FCF8BD;
-						transform: translate(0vw, 10vw);
-						}
-					}
 				}
 		}
+		&__link{
+			&-order{
+				&::before {
+					content: '';
+					display: block;
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					border-radius: 50%;
+					background-color: #ff931e;
+					}
+					span {
+
+    position: relative;
+    z-index: 1000;
+					}
+			&::after {
+				content: '';
+				display: block;
+				position: absolute;
+				top: -10vw;
+				width: 4vw;
+				height: 4vw;
+				mask: url('../img/アセット 6.svg');
+					mask-size: contain;
+					mask-repeat: no-repeat;
+					mask-position: center;
+					// z-indexはイラスト共通の定数にする
+				z-index: 1000;
+				background-color: #FCF8BD;
+				transform: translate(0vw, 10vw);
+				}
+			}
+			}
 	}
 
 
