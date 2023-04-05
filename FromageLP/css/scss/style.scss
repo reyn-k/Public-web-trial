@@ -43,7 +43,7 @@ z-index: 900;
 				top: -10vw;
 				width: 4vw;
 				height: 4vw;
-				mask: url('../img/アセット 6.svg');
+				mask: url('../img/arrow.svg');
 					mask-size: contain;
 					mask-repeat: no-repeat;
 					mask-position: center;
@@ -77,7 +77,7 @@ z-index: 900;
 				top: -10vw;
 				width: 4vw;
 				height: 4vw;
-				mask: url('../img/アセット 6.svg');
+				mask: url('../img/アセット 12.svg');
 					mask-size: contain;
 					mask-repeat: no-repeat;
 					mask-position: center;
@@ -290,9 +290,11 @@ z-index: 900;
 		transform: translate(32.8vw, -2.3vw) scale( -1, 1) rotate(-25deg);
 		}
 	&__photo {
-		width: 100%;
 		position: absolute;
 		z-index: 10;
+		img {
+		width: 100%;
+		}
 		&::after {
 			content: '';
 			display: block;

@@ -302,8 +302,8 @@ body {
   top: -10vw;
   width: 4vw;
   height: 4vw;
-  -webkit-mask: url("../img/アセット 6.svg");
-          mask: url("../img/アセット 6.svg");
+  -webkit-mask: url("../img/arrow.svg");
+          mask: url("../img/arrow.svg");
   -webkit-mask-size: contain;
           mask-size: contain;
   -webkit-mask-repeat: no-repeat;
@@ -334,8 +334,8 @@ body {
   top: -10vw;
   width: 4vw;
   height: 4vw;
-  -webkit-mask: url("../img/アセット 6.svg");
-          mask: url("../img/アセット 6.svg");
+  -webkit-mask: url("../img/アセット 12.svg");
+          mask: url("../img/アセット 12.svg");
   -webkit-mask-size: contain;
           mask-size: contain;
   -webkit-mask-repeat: no-repeat;
@@ -524,9 +524,11 @@ body {
   transform: translate(32.8vw, -2.3vw) scale(-1, 1) rotate(-25deg);
 }
 .home-mainvisual__photo {
-  width: 100%;
   position: absolute;
   z-index: 10;
+}
+.home-mainvisual__photo img {
+  width: 100%;
 }
 .home-mainvisual__photo::after {
   content: "";
