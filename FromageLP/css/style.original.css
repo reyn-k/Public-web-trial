@@ -300,8 +300,8 @@ body {
   display: block;
   position: absolute;
   top: -10vw;
-  width: 4vw;
-  height: 4vw;
+  width: 1.2vw;
+  height: 1.2vw;
   -webkit-mask: url("../img/arrow.svg");
           mask: url("../img/arrow.svg");
   -webkit-mask-size: contain;
@@ -332,8 +332,8 @@ body {
   display: block;
   position: absolute;
   top: -10vw;
-  width: 4vw;
-  height: 4vw;
+  width: 1vw;
+  height: 1vw;
   -webkit-mask: url("../img/アセット 12.svg");
           mask: url("../img/アセット 12.svg");
   -webkit-mask-size: contain;
