@@ -56,6 +56,7 @@ z-index: 900;
 		}
 		&__link{
 			&-order{
+				text-align: center;
 				&::before {
 					content: '';
 					display: block;
@@ -64,6 +65,7 @@ z-index: 900;
 					height: 100%;
 					border-radius: 50%;
 					background-color: #ff931e;
+					transform: translateY(calc(-52% + 3.5vh));
 					}
 					span {
 
