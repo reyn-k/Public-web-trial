@@ -314,6 +314,9 @@ body {
   background-color: #FCF8BD;
   transform: translate(0vw, 10vw);
 }
+.nav-global__link-order {
+  text-align: center;
+}
 .nav-global__link-order::before {
   content: "";
   display: block;
