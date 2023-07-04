@@ -309,10 +309,10 @@ body {
           mask-size: contain;
   -webkit-mask-repeat: no-repeat;
           mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-          mask-position: center;
+  -webkit-mask-position: center calc(100% - 1.8vh);
+          mask-position: center calc(100% - 1.8vh);
   z-index: 1000;
-  background-color: #FCF8BD;
+  background-color: #fff;
   transform: translateX(-1.2vh) translateY(calc(-52% + 3.5vh));
 }
 .nav-global__link-order {
@@ -326,20 +326,31 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: #ff931e;
+  background: linear-gradient(180deg, rgb(184, 147, 164) 0%, rgba(189, 153, 170, 0.87) 15%, rgba(204, 173, 188, 0.35) 60%, rgba(209, 180, 194, 0) 100%);
   transform: translateY(calc(-52% + 3.5vh));
 }
 .nav-global__link-order span {
-  position: relative;
+  position: absolute;
   z-index: 1000;
+}
+.nav-global__link-order span:nth-of-type(1) {
+  transform: translate(1.4vw, 0.65vw) rotate(-8.3deg);
+}
+.nav-global__link-order span:nth-of-type(2) {
+  transform: translate(3vw, 0.15vw) rotate(-4deg);
+}
+.nav-global__link-order span:nth-of-type(3) {
+  transform: translate(4.9vw, -0.2vw);
+}
+.nav-global__link-order span:nth-of-type(4) {
+  transform: translate(6.9vw, 0.5vw) rotate(8.3deg);
 }
 .nav-global__link-order::after {
   content: "";
   display: block;
   position: absolute;
-  top: -10vw;
-  width: 1vw;
-  height: 1vw;
+  width: 1.3vw;
+  height: 1.3vw;
   -webkit-mask: url("../img/アセット 12.svg");
           mask: url("../img/アセット 12.svg");
   -webkit-mask-size: contain;
@@ -350,7 +361,7 @@ body {
           mask-position: center;
   z-index: 1000;
   background-color: #FCF8BD;
-  transform: translate(0vw, 10vw);
+  transform: translate(0.7vw, vw);
 }
 
 .scrolled {
