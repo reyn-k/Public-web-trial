@@ -145,14 +145,14 @@
 
       else {
         // Android以外は、明朝体用cssカスタムプロパティ値にserifを追加し、端末の明朝体を適用
-        document.documentElement.style.setProperty('--font-famiry_serif', window.getComputedStyle(document.documentElement).getPropertyValue('--font-famiry_serif') + ', serif');
+        document.documentElement.style.setProperty('--font-family_serif', window.getComputedStyle(document.documentElement).getPropertyValue('--font-family_serif') + ', serif');
       }
 
       // WebFontを読み込み
       if (typeof WebFont === 'object') {
         WebFont.load(WebFontConfig);
       }
-      // <<<< ここまで、--font-famiry_serifの最初に'Noto Serif JP'をtextのサブセットで追加する基本のスクリプト。
+      // <<<< ここまで、--font-family_serifの最初に'Noto Serif JP'をtextのサブセットで追加する基本のスクリプト。
       // あとwebfont.jsの読み込みもセット。
 
     });
@@ -181,20 +181,20 @@
 
 <body>
   <section id="home" class="home">
-    <div class="home-maincopy">
-      <h1 class="home-maincopy__title">
+    <div class="home-main-copy">
+      <h1 class="home-main-copy__title">
         <picture>
           <source>
-          <img class="home-maincopy__logo" src="./img/Home logo(仮).webp" alt="チーズの定期便〝プティ・ボン・プティ - Petit Bon Petit〟">
+          <img class="home-main-copy__logo" src="./img/Home logo(仮).webp" alt="チーズの定期便〝プティ・ボン・プティ - Petit Bon Petit〟">
         </picture>
       </h1>
-      <p class="home-maincopy__text JS_WEB-FONT"><strong
-          class="home-maincopy__text-main JS_SPLIT-TEXT">〝美味しく、すてき〟</strong><span
-          class="home-maincopy__text-sub1">を</span><span class="home-maincopy__text-sub2">ちょっとずつ</span><span
-          class="home-maincopy__text-sub2">おうちにお届け<span>。</span></span></p>
+      <p class="home-main-copy__text JS_WEB-FONT"><strong
+          class="home-main-copy__text-main JS_SPLIT-TEXT">〝美味しく、すてき〟</strong><span
+          class="home-main-copy__text-sub1">を</span><span class="home-main-copy__text-sub2">ちょっとずつ</span><span
+          class="home-main-copy__text-sub2">おうちにお届け<span>。</span></span></p>
     </div>
-    <div class="home-mainvisual">
-      <picture class="home-mainvisual__photo">
+    <div class="home-main-visual">
+      <picture class="home-main-visual__photo">
         <source>
         <img src="./img/アセット 14.webp" alt="">
       </picture>
