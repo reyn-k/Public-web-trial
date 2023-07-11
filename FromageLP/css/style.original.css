@@ -224,21 +224,22 @@ th {
 
 /* custom properties >>>>>>>>>> */
 :root {
-  --font-family_serif: "Times New Roman",
-  "Hiragino Mincho ProN",
-  "Hiragino Mincho Pro",
-  "Yu Mincho";
   --font-family_sans-serif: "Helvetica Neue",
   Arial,
   "Hiragino Kaku Gothic ProN",
   "Hiragino Sans",
   Meiryo,
   sans-serif;
+  --font-family_serif: "Times New Roman",
+  "Hiragino Mincho ProN",
+  "Hiragino Mincho Pro",
+  "Yu Mincho";
   --font-famiry_Klee: Klee,
   "Klee One",
   var(--font-family_serif);
-  --root_font-size: 16; /* Desktop 本文フォントサイズ用変数 */
   --margin_contents-center: calc(calc(100vw - 980px) /2); /* Desktop コンテンツの左右margin (margin:autoを使用しない場合向け) */
+  --root_font-size: 16; /* Desktop 本文フォントサイズ用変数 */
+  --z-index_nav-global: 900; /* グローバルナビ */
 }
 
 /* <<<<<<<<<< custom properties */
@@ -270,7 +271,7 @@ body {
   height: 7vh;
   position: fixed;
   width: 100%;
-  z-index: 900;
+  z-index: var(--z-index_nav-global);
 }
 .nav-global__menu {
   align-items: center;
@@ -301,8 +302,8 @@ body {
   display: block;
   height: 100%;
   left: 50%;
-  -webkit-mask: url("../img/arrow.svg");
-          mask: url("../img/arrow.svg");
+  -webkit-mask: url("../images/bg_arrow.svg");
+          mask: url("../images/bg_arrow.svg");
   -webkit-mask-position: center calc(100% - 1.8vh);
           mask-position: center calc(100% - 1.8vh);
   -webkit-mask-repeat: no-repeat;
@@ -313,7 +314,6 @@ body {
   top: 0;
   transform: translateX(-0.6vw) translateY(calc(-52% + 3.5vh));
   width: 1.2vw;
-  z-index: 1000;
 }
 .nav-global__link {
   font-size: 1.4vw;
@@ -334,7 +334,6 @@ body {
 }
 .nav-global__link-order span {
   position: absolute;
-  z-index: 1000;
 }
 .nav-global__link-order span:nth-of-type(1) {
   transform: translate(1.4vw, 0.65vw) rotate(-8.3deg);
@@ -353,8 +352,8 @@ body {
   content: "";
   display: block;
   height: 1.3vw;
-  -webkit-mask: url("../img/アセット 12.svg");
-          mask: url("../img/アセット 12.svg");
+  -webkit-mask: url("../images/bg_3line.svg");
+          mask: url("../images/bg_3line.svg");
   -webkit-mask-position: center;
           mask-position: center;
   -webkit-mask-repeat: no-repeat;
@@ -364,14 +363,13 @@ body {
   position: absolute;
   transform: translate(0.7vw, 0vw);
   width: 1.3vw;
-  z-index: 1000;
 }
 
 .scrolled {
   bottom: calc(7vh + 20px);
   color: #ff931e;
   filter: drop-shadow(1px -1px 0.5px rgb(255, 255, 255));
-  font-family: serif;
+  font-family: var(--font-family_serif);
   font-size: 1vw;
   left: calc(24px + 0.8rem);
   padding-right: calc(11vh + 0.4rem);
@@ -385,7 +383,6 @@ body {
   background-color: #ff931e;
   content: "";
   display: inline-block;
-  font-family: sans-serif;
   height: 1px;
   position: absolute;
   right: 0;
@@ -399,7 +396,7 @@ body {
  * -------------------------------------------------------------------
  */
 .home {
-  background: url("../img/黄円(仮).svg") 4.7vw -1vw no-repeat fixed, url("../img/bg-png8-w.webp") left top no-repeat fixed;
+  background: url("../images/bg_bubble_KARI.svg") 4.7vw -1vw no-repeat fixed, url("../images/bg-png8-w_KARI.webp") left top no-repeat fixed;
   background-size: 84vw, 60.9vw;
   height: 100vh;
   position: relative;
@@ -407,7 +404,7 @@ body {
 
 .home-maincopy {
   position: relative;
-  z-index: 3333;
+  z-index: calc(var(--z-index_nav-global) - 1);
 }
 .home-maincopy__title {
   left: 18.8vw;
@@ -425,8 +422,8 @@ body {
   content: "";
   display: block;
   height: 8vw;
-  -webkit-mask: url("../img/アセット 6.svg");
-          mask: url("../img/アセット 6.svg");
+  -webkit-mask: url("../images/bg_illust_wine.svg");
+          mask: url("../images/bg_illust_wine.svg");
   -webkit-mask-position: center;
           mask-position: center;
   -webkit-mask-repeat: no-repeat;
@@ -436,10 +433,9 @@ body {
   position: absolute;
   transform: translate(0vw, 10vw);
   width: 8vw;
-  z-index: 1000;
 }
 .home-maincopy__text-main {
-  background: url("../img/アセット 10.svg") center 100% no-repeat;
+  background: url("../images/bg_line_KARI.svg") center 100% no-repeat;
   background-size: calc(100% - 40px);
   color: #fff;
   display: inline-block;
@@ -549,15 +545,14 @@ body {
   position: absolute;
   transform: translate(-0.8vw, -0.8vw) rotate(-4deg);
   width: 41.4vw;
-  z-index: 1;
 }
 .home-mainvisual::after {
   background-color: #fcf8bd;
   content: "";
   display: block;
   height: 8vw;
-  -webkit-mask: url("../img/アセット 50.svg");
-          mask: url("../img/アセット 50.svg");
+  -webkit-mask: url("../images/bg_illust_flower.svg");
+          mask: url("../images/bg_illust_flower.svg");
   -webkit-mask-position: center;
           mask-position: center;
   -webkit-mask-repeat: no-repeat;
@@ -568,11 +563,9 @@ body {
   top: 0;
   transform: translate(32.8vw, -2.3vw) scale(-1, 1) rotate(-25deg);
   width: 8vw;
-  z-index: 1000;
 }
 .home-mainvisual__photo {
   position: absolute;
-  z-index: 10;
 }
 .home-mainvisual__photo img {
   width: 100%;
@@ -584,8 +577,8 @@ body {
   display: block;
   height: 11vw;
   left: 0;
-  -webkit-mask: url("../img/アセット 50.svg");
-          mask: url("../img/アセット 50.svg");
+  -webkit-mask: url("../images/bg_illust_flower.svg");
+          mask: url("../images/bg_illust_flower.svg");
   -webkit-mask-position: center;
           mask-position: center;
   -webkit-mask-repeat: no-repeat;
@@ -595,5 +588,4 @@ body {
   position: absolute;
   transform: translate(-4vw, 2.2vw);
   width: 11vw;
-  z-index: 1000;
 }

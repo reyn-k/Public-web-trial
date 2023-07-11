@@ -13,8 +13,7 @@
 	height: 7vh;
 	position: fixed;
 	width: 100%;
-	// z-indexは定数にする
-	z-index: 900;
+	z-index: var(--z-index_nav-global);
 	&__menu {
 		align-items: center;
 		display: flex;
@@ -42,7 +41,7 @@
 				display: block;
 				height: 100%;
 				left: calc(50%);
-				mask: url('../img/arrow.svg');
+				mask: url('../images/bg_arrow.svg');
 				mask-position: center calc(100% - 1.8vh);
 				mask-repeat: no-repeat;
 				mask-size: contain;
@@ -50,8 +49,6 @@
 				top: 0;
 				transform: translateX(-.6vw) translateY(calc(-52% + 3.5vh));
 				width: 1.2vw;
-				// z-indexはイラスト共通の定数にする
-				z-index: 1000;
 				}
 			}
 		}
@@ -74,7 +71,6 @@
 				}
 			span {
 				position: absolute;
-				z-index: 1000;
 				&:nth-of-type(1) {
 					transform: translate(1.4vw, .65vw)
 					rotate(-8.3deg);
@@ -96,15 +92,13 @@
 				content: '';
 				display: block;
 				height: 1.3vw;
-				mask: url('../img/アセット 12.svg');
+				mask: url('../images/bg_3line.svg');
 				mask-position: center;
 				mask-repeat: no-repeat;
 				mask-size: contain;
 				position: absolute;
 				transform: translate(.7vw, 0vw);
 				width: 1.3vw;
-				// z-indexはイラスト共通の定数にする
-				z-index: 1000;
 				}
 			}
 		}
@@ -114,7 +108,7 @@
 	bottom: calc( 7vh + 20px);
 	color: #ff931e;
 	filter: drop-shadow(1px -1px .5px rgba(255,255,255,1));
-	font-family: serif;
+	font-family: var(--font-family_serif);
 	font-size: 1vw;
 	left: calc( 14px + 10px + .8rem );
 	padding-right: calc( 11vh + .4rem );
@@ -138,7 +132,6 @@
 		background-color: #ff931e;
 		content: '';
 		display: inline-block;
-		font-family: sans-serif;
 		height: 1px;
 		position: absolute;
 		right: 0;
@@ -155,8 +148,8 @@
  */
 
 .home {
-	background: url('../img/黄円(仮).svg') 4.7vw -1vw no-repeat fixed,
-	url('../img/bg-png8-w.webp') left top no-repeat fixed;
+	background: url('../images/bg_bubble_KARI.svg') 4.7vw -1vw no-repeat fixed,
+	url('../images/bg-png8-w_KARI.webp') left top no-repeat fixed;
 	background-size: 84vw, 60.9vw;
 	height: 100vh;
 	position: relative;
@@ -165,7 +158,7 @@
 
 .home-maincopy {
 	position: relative;
-	z-index: 3333;
+	z-index: calc( var(--z-index_nav-global) - 1 );
 	&__title {
 		left: 18.8vw;
 		position: absolute;
@@ -181,18 +174,16 @@
 			content: '';
 			display: block;
 			height: 8vw;
-			mask: url('../img/アセット 6.svg');
+			mask: url('../images/bg_illust_wine.svg');
 			mask-position: center;
 			mask-repeat: no-repeat;
 			mask-size: contain;
 			position: absolute;
 			transform: translate(0vw, 10vw);
 			width: 8vw;
-			// z-indexはイラスト共通の定数にする
-			z-index: 1000;
 			}
 		&-main {
-			background: url('../img/アセット 10.svg') center calc(100%) no-repeat;
+			background: url('../images/bg_line_KARI.svg') center calc(100%) no-repeat;
 			background-size: calc(100% - 40px);
 			color: #fff;
 			display: inline-block;
@@ -327,14 +318,13 @@
 		transform: translate(-.8vw, -.8vw) rotate(-4deg);
 		// top: 4px;
 		width: 41.4vw;
-		z-index: 1;
 		}
 	&::after {
 		background-color: #fcf8bd;
 		content: '';
 		display: block;
 		height: 8vw;
-		mask: url('../img/アセット 50.svg');
+		mask: url('../images/bg_illust_flower.svg');
 		mask-position: center;
 		mask-repeat: no-repeat;
 		mask-size: contain;
@@ -342,12 +332,9 @@
 		top: 0;
 		transform: translate(32.8vw, -2.3vw) scale( -1, 1) rotate(-25deg);
 		width: 8vw;
-		// z-indexはイラスト共通の定数にする
-		z-index: 1000;
 		}
 	&__photo {
 		position: absolute;
-		z-index: 10;
 		img {
 			width: 100%;
 			}
@@ -358,15 +345,13 @@
 			display: block;
 			height: 11vw;
 			left: 0;
-			mask: url('../img/アセット 50.svg');
+			mask: url('../images/bg_illust_flower.svg');
 			mask-position: center;
 			mask-repeat: no-repeat;
 			mask-size: contain;
 			position: absolute;
 			transform: translate(-4vw, 2.2vw);
 			width: 11vw;
-			// z-indexはイラスト共通の定数にする
-			z-index: 1000;
 			}
 		}
 	}
