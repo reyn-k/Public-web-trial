@@ -4,6 +4,9 @@ $D_margin-LR: 30px; //Desktopの基本左右margin
 
 /* custom properties >>>>>>>>>> */
 :root {
+	--font-family_Klee: Klee,
+	'Klee One',
+	var(--font-family_serif);
 	--font-family_sans-serif: 'Helvetica Neue',
 	Arial,
 	'Hiragino Kaku Gothic ProN',
@@ -14,9 +17,6 @@ $D_margin-LR: 30px; //Desktopの基本左右margin
 	'Hiragino Mincho ProN',
 	'Hiragino Mincho Pro',
 	'Yu Mincho';
-	--font-famiry_Klee: Klee,
-	'Klee One',
-	var(--font-family_serif);
 	--margin_contents-center: calc(calc(100vw - 980px) /2); /* Desktop コンテンツの左右margin (margin:autoを使用しない場合向け) */
 	--root_font-size: 16; /* Desktop 本文フォントサイズ用変数 */
 	--z-index_nav-global: 900; /* グローバルナビ */
