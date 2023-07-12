@@ -144,8 +144,9 @@
       // <<<< Android用スクリプト
 
       else {
+        // これ、何のために書いた？これがあるとクレーにならない！！！！！
         // Android以外は、明朝体用cssカスタムプロパティ値にserifを追加し、端末の明朝体を適用
-        document.documentElement.style.setProperty('--font-family_serif', window.getComputedStyle(document.documentElement).getPropertyValue('--font-family_serif') + ', serif');
+        // document.documentElement.style.setProperty('--font-family_serif', window.getComputedStyle(document.documentElement).getPropertyValue('--font-family_serif') + ', serif');
       }
 
       // WebFontを読み込み
@@ -160,7 +161,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" async></script>
 
   <!-- ページごとにhtmlは分けないので、single.cssは作らない -->
-  <link rel="stylesheet" href="./css/style.css?0704-1">
+  <link rel="stylesheet" href="./css/style.css?0711">
 
   <meta name="description" content="ページの説明文">
   <meta property="og:title" content="チーズの定期便〝プティ・ボン・プティ - Petit Bon Petit〟">
@@ -185,7 +186,8 @@
       <h1 class="home-main-copy__title">
         <picture>
           <source>
-          <img class="home-main-copy__logo" src="./img/Home logo(仮).webp" alt="チーズの定期便〝プティ・ボン・プティ - Petit Bon Petit〟">
+          <img class="home-main-copy__logo" src="./images/logo_Petit-Bon-Petit_Home_KARI.webp"
+            alt="チーズの定期便〝プティ・ボン・プティ - Petit Bon Petit〟">
         </picture>
       </h1>
       <p class="home-main-copy__text JS_WEB-FONT"><strong
@@ -196,7 +198,7 @@
     <div class="home-main-visual">
       <picture class="home-main-visual__photo">
         <source>
-        <img src="./img/アセット 14.webp" alt="">
+        <img src="./images/image_Home_KARI.webp" alt="">
       </picture>
     </div>
   </section>
