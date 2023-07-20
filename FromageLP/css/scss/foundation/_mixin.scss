@@ -19,19 +19,19 @@
 		}
 	}
 
-@mixin horizontallyCenter { //左右中央寄せ
+@mixin horizontallyCenter {
+	margin-left: auto; //左右中央寄せ
 	margin-right: auto;
-	margin-left: auto;
 	}
-@mixin verticallyCenter { //上下中央寄せ
+@mixin verticallyCenter {
+	align-items: center; //上下中央寄せ
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: center;
 	}
-@mixin fixedBottom { //画面下部固定
+@mixin fixedBottom {
+	bottom: 0; //画面下部固定
 	position: fixed;
-	bottom: 0;
 	}
 @mixin trimBox { //ボックスの大きさでトリミング
 	overflow: hidden;
@@ -39,6 +39,55 @@
 	}
 
 @mixin fontRem ( $fontSizePx ) {
-	// font-size: calc( $fontSizePx / var(--root_font-size) * 1rem ); //NG。?????
 	font-size: calc( #{$fontSizePx} / var(--root_font-size) * 1rem );
 	}
+
+// svg画像を着色して表示させる
+@mixin svgBgImage ( $color: #000, $left: 0, $svg: '', $position: center, $translateX: 0, $translateY: 0, $width: 100% ) {
+	background-color: $color;
+	content: '';
+	display: block;
+	height: 100%;
+	left: $left;
+	mask: url($svg);
+	mask-position: $position;
+	mask-repeat: no-repeat;
+	mask-size: contain;
+	position: absolute;
+	top: 0;
+	transform: translate($translateX, $translateY);
+	width: $width;
+	}
+
+
+
+
+
+// 以下、mixinのテンプレート
+
+// @mixin fontRem ( $fontSizePx ) {
+// 	font-size: calc( #{$fontSizePx} / var(--root_font-size) * 1rem );
+// 	}
+
+// // :hover animation >>>>>>>>>>
+// // 明るくするアニメーションは基本これを使う
+// @mixin HOV-transp ( $opacity: .6, $duration: .5s ) {
+// 	/* opacityで明るくなるanimation */
+// 	transition: opacity $duration cubic-bezier(.45, 0, .55, 1);
+// 	&:hover {
+// 		opacity: $opacity;
+// 		}
+// 	}
+// // 明るく大きくするアニメーションは基本これを使う
+// @mixin HOV-transp-zUp ( $opacity: .7, $oDuration: .3s, $scale: 1.03, $tDuration: .6s, $isInline: false ) {
+// 	/* opacityで明るくなり、大きくなるanimation */
+// 	@if ($isInline) {
+// 		display: inline-block; /* transformプロパティに必要 */
+// 		}
+// 	transition: opacity $oDuration cubic-bezier(.45, 0, .55, 1),
+// 	transform $tDuration;
+// 	&:hover {
+// 		opacity: $opacity;
+// 		transform: scale($scale);
+// 		}
+// 	}

@@ -2,6 +2,7 @@
 
 @use 'foundation';
 
+
 /*
  * navi-global ここでいい？
  https://coliss.com/articles/build-websites/operation/css/css3-flexbox-properties-by-scotch.html
@@ -36,19 +37,7 @@
 			right: 0;
 			width: 10vw;
 			&::after {
-				background-color: #fff;
-				content: '';
-				display: block;
-				height: 100%;
-				left: calc(50%);
-				mask: url('../images/bg_arrow.svg');
-				mask-position: center calc(100% - 1.8vh);
-				mask-repeat: no-repeat;
-				mask-size: contain;
-				position: absolute;
-				top: 0;
-				transform: translateX(-.6vw) translateY(calc(-52% + 3.5vh));
-				width: 1.2vw;
+				@include foundation.svgBgImage(#fff, calc(50%), '../images/bg_arrow.svg', center calc(100% - 1.8vh), -.6vw, calc(-52% + 3.5vh), 1.2vw);
 				}
 			}
 		}
