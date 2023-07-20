@@ -312,7 +312,7 @@ body {
           mask-size: contain;
   position: absolute;
   top: 0;
-  transform: translateX(-0.6vw) translateY(calc(-52% + 3.5vh));
+  transform: translate(-0.6vw, calc(-52% + 3.5vh));
   width: 1.2vw;
 }
 .nav-global__link {
