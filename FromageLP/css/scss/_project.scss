@@ -8,7 +8,7 @@
  * -------------------------------------------------------------------
  */
 
-.home {
+.p-home {
 	background: url('../images/bg_bubble_KARI.svg') 4.7vw -1vw no-repeat fixed,
 	url('../images/bg-png8-w_KARI.webp') left top no-repeat fixed;
 	background-size: 84vw, 60.9vw;
@@ -17,7 +17,7 @@
 	}
 
 
-.home-main-copy {
+.p-home-main-copy {
 	position: relative;
 	z-index: calc( var(--z-index_nav-global) - 1 );
 	&__title {
@@ -163,7 +163,7 @@
 		}
 	}
 
-.home-main-visual {
+.p-home-main-visual {
 	// width: 44.535vw; // padding必要ならこの値
 	left: 52.7vw;
 	position: absolute;
@@ -214,5 +214,44 @@
 			transform: translate(-4vw, 2.2vw);
 			width: 11vw;
 			}
+		}
+	}
+
+
+.p-scrolled {
+	bottom: calc( 7vh + 20px);
+	color: #ff931e;
+	filter: drop-shadow(1px -1px .5px rgba(255,255,255,1));
+	font-family: var(--font-family_serif);
+	font-size: 1vw;
+	left: calc( 14px + 10px + .8rem );
+	padding-right: calc( 11vh + .4rem );
+	position: fixed;
+	transform: rotate(90deg);
+	transform-origin: right bottom;
+	// &::before {
+	// 	display: inline-block;
+	// 	color: #888;
+	// 	// font-size: .8rem;
+	// 	content: 'Scrolled';
+	// 	vertical-align: middle;
+	// 	transform: translateY(-20%);
+	// 	animation: scrolled-text 6s cubic-bezier(.19,1,.22,1) infinite;
+	// 	animation-fill-mode: both;
+	// 	// filter: drop-shadow(.5px .5px .5px rgba(255,255,255,1)) drop-shadow(.5px .5px 1px rgba(255,255,255,.8)) drop-shadow(-.5px -.5px 1px rgba(255,255,255,.8)) drop-shadow(-.5px -.5px .5px rgba(255,255,255,1));
+	// 	}
+	&::after {
+		animation: scrolled-line 6s cubic-bezier(.19,1,.22,1) .2s infinite;
+		animation-fill-mode: both;
+		background-color: #ff931e;
+		content: '';
+		display: inline-block;
+		height: 1px;
+		position: absolute;
+		right: 0;
+		top: calc(50% - 1px);
+		transform-origin: right center;
+		width: 11vh;
+		// filter: drop-shadow(1px -1px .5px rgba(255,255,255,1));
 		}
 	}
