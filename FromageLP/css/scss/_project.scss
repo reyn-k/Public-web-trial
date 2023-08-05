@@ -43,121 +43,121 @@
 			transform: translate(0vw, 10vw);
 			width: 8vw;
 			}
-		&-main {
-			background: url('../images/bg_line_KARI.svg') center calc(100%) no-repeat;
-			background-size: calc(100% - 40px);
-			color: #fff;
-			display: inline-block;
-			font-family: var(--font-family_Klee);
-			font-feature-settings: 'palt';
-			font-weight: normal;
-			letter-spacing: -.1em;
-			padding-bottom: 10px;
-			width: fit-content;
-			&::before {
-				background-color: rgba($color: #b2dec9, $alpha: .2);
-				content: '';
-				display: block;
-				height: 60px;
-				mix-blend-mode: multiply;
-				position: absolute;
-				top: 4px;
-				transform: rotate(-1.5deg);
-				width: calc(100% - 52px);
-				}
-			span {
-				display: inline-block;
-				// filter: drop-shadow(1px 1px 2px rgba(209,193,166,1));
-				text-shadow: 1px 1px 6px rgba(209,193,166,.4), 0 0 10px rgb(253, 242, 184, .6);
-				&:nth-of-type(1),
-				&:nth-of-type(6),
-				&:nth-of-type(10) {
-					font-size: 48px;
-					}
-				&:nth-of-type(2),
-				&:nth-of-type(3),
-				&:nth-of-type(4),
-				&:nth-of-type(5),
-				&:nth-of-type(7),
-				&:nth-of-type(8),
-				&:nth-of-type(9) {
-					font-size: 66px;
-					}
-				&:nth-of-type(1) {
-					transform: translate(-6px, -18px)
-					rotate(-3.6deg);
-					}
-				&:nth-of-type(2) {
-					transform: translate(4px, -1px)
-					rotate(-11.8deg);
-					}
-				&:nth-of-type(3) {
-					transform: translate(-1px, -10px)
-					rotate(-7.9deg);
-					}
-				&:nth-of-type(4) {
-					transform: translate(-1px, -18px)
-					rotate(-5.9deg);
-					}
-				&:nth-of-type(5) {
-					transform: translate(-8px, -22px)
-					rotate(-1.7deg);
-					}
-				&:nth-of-type(6) {
-					transform: translate(-10px, -16px)
-					rotate(0deg);
-					}
-				&:nth-of-type(7) {
-					transform: translate(-14px, -14px)
-					rotate(0deg);
-					}
-				&:nth-of-type(8) {
-					transform: translate(-20px, -6px)
-					rotate(0deg);
-					}
-				&:nth-of-type(9) {
-					transform: translate(-22px, -18px)
-					rotate(0deg);
-					}
-				&:nth-of-type(10) {
-					transform: translate(-12px, -3px)
-					rotate(0deg);
-					}
-				}
-			}
-		&-sub1 {
-			color: #fff;
-			display: inline-block;
-			font-family: var(--font-family_serif);
-			font-size: 38px;
-			transform: translate(-10px, -18px)
-			rotate(0deg);
-			}
-		&-sub2 {
-			background-color: rgba($color: #ff931e, $alpha: .7);
-			color: #fff;
+		}
+	&__main {
+		background: url('../images/bg_line_KARI.svg') center calc(100%) no-repeat;
+		background-size: calc(100% - 40px);
+		color: #fff;
+		display: inline-block;
+		font-family: var(--font-family_Klee);
+		font-feature-settings: 'palt';
+		font-weight: normal;
+		letter-spacing: -.1em;
+		padding-bottom: 10px;
+		width: fit-content;
+		&::before {
+			background-color: rgba($color: #b2dec9, $alpha: .2);
+			content: '';
 			display: block;
-			font-family: var(--font-family_serif);
-			font-feature-settings: 'palt';
-			font-size: 33px;
-			letter-spacing: .2em;
-			line-height: 1;
-			padding-left: 2px;
-			padding-top: 3px;
-			width: fit-content;
-			// font-weight: bold;　※これでW6になるので、何も指定なければW3。太いな…
+			height: 60px;
+			mix-blend-mode: multiply;
+			position: absolute;
+			top: 4px;
+			transform: rotate(-1.5deg);
+			width: calc(100% - 52px);
+			}
+		span {
+			display: inline-block;
+			// filter: drop-shadow(1px 1px 2px rgba(209,193,166,1));
+			text-shadow: 1px 1px 6px rgba(209,193,166,.4), 0 0 10px rgb(253, 242, 184, .6);
+			&:nth-of-type(1),
+			&:nth-of-type(6),
+			&:nth-of-type(10) {
+				font-size: 48px;
+				}
+			&:nth-of-type(2),
+			&:nth-of-type(3),
+			&:nth-of-type(4),
+			&:nth-of-type(5),
+			&:nth-of-type(7),
+			&:nth-of-type(8),
+			&:nth-of-type(9) {
+				font-size: 66px;
+				}
+			&:nth-of-type(1) {
+				transform: translate(-6px, -18px)
+				rotate(-3.6deg);
+				}
 			&:nth-of-type(2) {
-				transform: translate(54px, 0px)
-				rotate(-3.4deg);
+				transform: translate(4px, -1px)
+				rotate(-11.8deg);
 				}
 			&:nth-of-type(3) {
-				transform: translate(215px, -8px)
-				rotate(-3.4deg);
-				span {
-					display: inline-block;
-					transform: translate(-.1em, 0);
-					width: .35em;
-					}
+				transform: translate(-1px, -10px)
+				rotate(-7.9deg);
+				}
+			&:nth-of-type(4) {
+				transform: translate(-1px, -18px)
+				rotate(-5.9deg);
+				}
+			&:nth-of-type(5) {
+				transform: translate(-8px, -22px)
+				rotate(-1.7deg);
+				}
+			&:nth-of-type(6) {
+				transform: translate(-10px, -16px)
+				rotate(0deg);
+				}
+			&:nth-of-type(7) {
+				transform: translate(-14px, -14px)
+				rotate(0deg);
+				}
+			&:nth-of-type(8) {
+				transform: translate(-20px, -6px)
+				rotate(0deg);
+				}
+			&:nth-of-type(9) {
+				transform: translate(-22px, -18px)
+				rotate(0deg);
+				}
+			&:nth-of-type(10) {
+				transform: translate(-12px, -3px)
+				rotate(0deg);
+				}
+			}
+		}
+	&__sub1 {
+		color: #fff;
+		display: inline-block;
+		font-family: var(--font-family_serif);
+		font-size: 38px;
+		transform: translate(-10px, -18px)
+		rotate(0deg);
+		}
+	&__sub2 {
+		background-color: rgba($color: #ff931e, $alpha: .7);
+		color: #fff;
+		display: block;
+		font-family: var(--font-family_serif);
+		font-feature-settings: 'palt';
+		font-size: 33px;
+		letter-spacing: .2em;
+		line-height: 1;
+		padding-left: 2px;
+		padding-top: 3px;
+		width: fit-content;
+		// font-weight: bold;　※これでW6になるので、何も指定なければW3。太いな…
+		&:nth-of-type(2) {
+			transform: translate(54px, 0px)
+			rotate(-3.4deg);
+			}
+		&:nth-of-type(3) {
+			transform: translate(215px, -8px)
+			rotate(-3.4deg);
+			span {
+				display: inline-block;
+				transform: translate(-.1em, 0);
+				width: .35em;
 				}
 			}
 		}
