@@ -24,9 +24,9 @@
 		font-weight: normal;
 		height: 100%;
 		justify-content: center;
-		&-item {
-			padding: 0 2.6vw;
-			}
+	}
+	&__item {
+		padding: 0 2.6vw;
 		&-order {
 			border-radius: 50%;
 			color: #fff;
@@ -38,8 +38,8 @@
 			&::after {
 				@include foundation.svgBgImage(#fff, calc(50%), '../images/bg_arrow.svg', center calc(100% - 1.8vh), -.6vw, calc(-52% + 3.5vh), 1.2vw);
 				}
-			}
 		}
+	}
 	&__link {
 		font-size: 1.4vw;
 		&-order {
