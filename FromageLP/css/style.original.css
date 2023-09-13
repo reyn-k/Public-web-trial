@@ -287,6 +287,21 @@ body {
   color: #fff;
   filter: drop-shadow(1px 1px 2px rgb(209, 193, 166));
 }
+.l-nav-global__item-order::after {
+  content: "";
+  display: block;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  position: absolute;
+  background-color: #fff;
+  -webkit-mask: url("../images/bg_arrow.svg");
+          mask: url("../images/bg_arrow.svg");
+  height: 100%;
+  top: calc(-52% + 3.5vh);
+  width: 100%;
+}
 .l-nav-global__link {
   font-size: 1.4vw;
 }
@@ -307,21 +322,18 @@ body {
   position: absolute;
 }
 .l-nav-global__link-order::after {
-  background-color: #fcf8bd;
   content: "";
   display: block;
-  height: 2.5vw;
-  -webkit-mask: url("../images/bg_3line.svg");
-          mask: url("../images/bg_3line.svg");
-  -webkit-mask-position: center;
-          mask-position: center;
   -webkit-mask-repeat: no-repeat;
           mask-repeat: no-repeat;
   -webkit-mask-size: contain;
           mask-size: contain;
   position: absolute;
-  transform: translate(1.2vw, 2.2vw);
-  width: 2.5vw;
+  background-color: #fcf8bd;
+  -webkit-mask: url("../images/bg_3line.svg");
+          mask: url("../images/bg_3line.svg");
+  height: 100%;
+  width: 100%;
 }
 
 /* for Phones,Tablets */
@@ -340,22 +352,17 @@ body {
     bottom: 6vw;
   }
   .l-nav-global__item-order::after {
-    background-color: #fff;
     content: "";
     display: block;
-    height: 100%;
-    left: 50%;
-    -webkit-mask: url("../images/bg_arrow.svg");
-            mask: url("../images/bg_arrow.svg");
-    -webkit-mask-position: center calc(100% - 1vh);
-            mask-position: center calc(100% - 1vh);
+    -webkit-mask-position: center calc(100% - 1.2vw);
+            mask-position: center calc(100% - 1.2vw);
     -webkit-mask-repeat: no-repeat;
             mask-repeat: no-repeat;
     -webkit-mask-size: contain;
             mask-size: contain;
     position: absolute;
-    top: 0;
-    transform: translate(-1.2vw, calc(-52% + 3.5vh));
+    height: 100%;
+    left: calc(50% - 1.2vw);
     width: 2.4vw;
   }
   .l-nav-global__link {
@@ -376,6 +383,19 @@ body {
   .l-nav-global__link-order span:nth-of-type(4) {
     transform: translate(13vw, 4vw) rotate(8.3deg);
   }
+  .l-nav-global__link-order::after {
+    content: "";
+    display: block;
+    -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+            mask-size: contain;
+    position: absolute;
+    height: 2.5vw;
+    left: 2.2vw;
+    top: 1.2vw;
+    width: 2.5vw;
+  }
 }
 /* for Laptops,Desktops  */
 @media (min-width: 980px) {
@@ -392,22 +412,17 @@ body {
     width: 10vw;
   }
   .l-nav-global__item-order::after {
-    background-color: #fff;
     content: "";
     display: block;
-    height: 100%;
-    left: 50%;
-    -webkit-mask: url("../images/bg_arrow.svg");
-            mask: url("../images/bg_arrow.svg");
-    -webkit-mask-position: center calc(100% - 1.8vh);
-            mask-position: center calc(100% - 1.8vh);
+    -webkit-mask-position: center calc(100% - 0.6vw);
+            mask-position: center calc(100% - 0.6vw);
     -webkit-mask-repeat: no-repeat;
             mask-repeat: no-repeat;
     -webkit-mask-size: contain;
             mask-size: contain;
     position: absolute;
-    top: 0;
-    transform: translate(-0.6vw, calc(-52% + 3.5vh));
+    height: 100%;
+    left: calc(50% - 0.6vw);
     width: 1.2vw;
   }
   .l-nav-global__link {
@@ -427,6 +442,19 @@ body {
   }
   .l-nav-global__link-order span:nth-of-type(4) {
     transform: translate(6.9vw, 0.5vw) rotate(8.3deg);
+  }
+  .l-nav-global__link-order::after {
+    content: "";
+    display: block;
+    -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+            mask-size: contain;
+    position: absolute;
+    height: 2.5vw;
+    left: 2.2vw;
+    top: 1.2vw;
+    width: 2.5vw;
   }
 }
 /*
