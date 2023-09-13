@@ -29,6 +29,10 @@
 			border-radius: 50%;
 			color: #fff;
 			filter: drop-shadow(1px 1px 2px rgba(209,193,166,1));
+			&::after {
+			// @include foundation.svgBgImage($color: #fff, $svg: '../images/bg_arrow.svg', $top: calc(-52% + 3.5vh));
+			@include foundation.svgBgImage($color: #fff, $svg: '../images/bg_arrow.svg', $top: calc(-52% + 3.5vh));
+			}
 		}
 	}
 	&__link {
@@ -51,17 +55,7 @@
 				position: absolute;
 				}
 			&::after {
-				background-color: #fcf8bd;
-				content: '';
-				display: block;
-				height: 2.5vw;
-				mask: url('../images/bg_3line.svg');
-				mask-position: center;
-				mask-repeat: no-repeat;
-				mask-size: contain;
-				position: absolute;
-				transform: translate(1.2vw, 2.2vw);
-				width: 2.5vw;
+				@include foundation.svgBgImage ( $color: #fcf8bd, $svg: '../images/bg_3line.svg');
 				}
 			}
 		}
@@ -78,9 +72,9 @@
 					right: 3vw;
 					width: 18vw;
 					bottom: 6vw;
-					&::after {
-						@include foundation.svgBgImage(#fff, calc(50%), '../images/bg_arrow.svg', center calc(100% - 1vh), -1.2vw, calc(-52% + 3.5vh), 2.4vw);
-						}
+					&::after { // position: center calc(100% - calc(width / 2)
+						@include foundation.svgBgImage($position: center calc(100% - calc(2.4vw / 2)), $left: calc(50% - 1.2vw), $width: 2.4vw);
+					}
 				}
 			}
 			&__link {
@@ -104,6 +98,9 @@
 							rotate(8.3deg);
 							}
 						}
+						&::after {
+							@include foundation.svgBgImage ( $height: 2.5vw, $left: 2.2vw, $top: 1.2vw, $width: 2.5vw );
+							}
 				}
 			}
 		}
@@ -120,7 +117,8 @@
 					right: 0;
 					width: 10vw;
 					&::after {
-						@include foundation.svgBgImage(#fff, calc(50%), '../images/bg_arrow.svg', center calc(100% - 1.8vh), -.6vw, calc(-52% + 3.5vh), 1.2vw);
+						// @include foundation.svgBgImage($position: center calc(100% - 1.8vh), $left: calc(50% - .6vw), $width: 1.2vw);
+						@include foundation.svgBgImage($position: center calc(100% - calc(1.2vw / 2)), $left: calc(50% - .6vw), $width: 1.2vw);
 						}
 				}
 			}
@@ -145,6 +143,9 @@
 						rotate(8.3deg);//
 						}
 					}
+					&::after {
+						@include foundation.svgBgImage ( $height: 2.5vw, $left: 2.2vw, $top: 1.2vw, $width: 2.5vw );
+						}
 				}
 			}
 		}

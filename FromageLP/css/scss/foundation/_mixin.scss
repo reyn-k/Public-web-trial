@@ -43,20 +43,41 @@
 	}
 
 // svg画像を着色して表示させる
-@mixin svgBgImage ( $color: #000, $left: 0, $svg: '', $position: center, $translateX: 0, $translateY: 0, $width: 100% ) {
-	background-color: $color;
+// @mixin svgBgImage ( $color: #000, $left: 0, $svg: '', $position: center, $translateX: 0, $translateY: 0, $width: 100% ) {
+// 	background-color: $color;
+// 	content: '';
+// 	display: block;
+// 	height: 100%;
+// 	left: $left;
+// 	mask: url($svg);
+// 	mask-position: $position;
+// 	mask-repeat: no-repeat;
+// 	mask-size: contain;
+// 	position: absolute;
+// 	top: 0;
+// 	transform: translate($translateX, $translateY);
+// 	width: $width;
+// 	}
+
+
+// 省略 -> デフォルト 引数にデフォルトがないと省略できない
+// null -> 出力しない
+
+// svg画像を着色して表示させる
+@mixin svgBgImage ( $color: null, $svg: null, $position: null, $rotate: null, $height: 100%, $left: null, $top: null, $width: 100% ) {
 	content: '';
 	display: block;
-	height: 100%;
-	left: $left;
-	mask: url($svg);
 	mask-position: $position;
 	mask-repeat: no-repeat;
 	mask-size: contain;
 	position: absolute;
-	top: 0;
-	transform: translate($translateX, $translateY);
-	width: $width;
+	@if($color!=null) { background-color: $color; }
+	@if($svg!=null) { mask: url($svg); }
+	@if($rotate!=null) { transform: rotate($rotate); }
+	@if($height!=null) { height: $height; }
+	@if($left!=null) { left: $left; }
+	@if($top!=null) { top: $top; }
+	@if($width!=null) { width: $width; }
 	}
 
 
@@ -79,7 +100,7 @@
 // 		}
 // 	}
 // // 明るく大きくするアニメーションは基本これを使う
-// @mixin HOV-transp-zUp ( $opacity: .7, $oDuration: .3s, $scale: 1.03, $tDuration: .6s, $isInline: false ) {
+// @mixin HOV-transp-zUp ( $opacity: .7, $oDuration: .3s, $scale: 1.03, $tDuration: .6s, $isInline: null ) {
 // 	/* opacityで明るくなり、大きくなるanimation */
 // 	@if ($isInline) {
 // 		display: inline-block; /* transformプロパティに必要 */
