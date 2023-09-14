@@ -64,7 +64,7 @@
 // null -> 出力しない
 
 // svg画像を着色して表示させる
-@mixin svgBgImage ( $color: null, $svg: null, $position: null, $rotate: null, $height: 100%, $left: null, $top: null, $width: 100% ) {
+@mixin svgBgImage ( $color: null, $svg: null, $position: center, $rotate: null, $height: 100%, $left: null, $top: null, $width: 100% ) {
 	content: '';
 	display: block;
 	mask-position: $position;
@@ -73,6 +73,7 @@
 	position: absolute;
 	@if($color!=null) { background-color: $color; }
 	@if($svg!=null) { mask: url($svg); }
+
 	@if($rotate!=null) { transform: rotate($rotate); }
 	@if($height!=null) { height: $height; }
 	@if($left!=null) { left: $left; }

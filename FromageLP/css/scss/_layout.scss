@@ -144,7 +144,7 @@
 						}
 					}
 					&::after {
-						@include foundation.svgBgImage ( $height: 2.5vw, $left: 2.2vw, $top: 1.2vw, $width: 2.5vw );
+						@include foundation.svgBgImage ( $height: 1.3vw, $left: .7vw, $top: 0, $width: 1.3vw );
 						}
 				}
 			}
