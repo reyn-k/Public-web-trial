@@ -290,6 +290,8 @@ body {
 .l-nav-global__item-order::after {
   content: "";
   display: block;
+  -webkit-mask-position: center;
+          mask-position: center;
   -webkit-mask-repeat: no-repeat;
           mask-repeat: no-repeat;
   -webkit-mask-size: contain;
@@ -324,6 +326,8 @@ body {
 .l-nav-global__link-order::after {
   content: "";
   display: block;
+  -webkit-mask-position: center;
+          mask-position: center;
   -webkit-mask-repeat: no-repeat;
           mask-repeat: no-repeat;
   -webkit-mask-size: contain;
@@ -386,6 +390,8 @@ body {
   .l-nav-global__link-order::after {
     content: "";
     display: block;
+    -webkit-mask-position: center;
+            mask-position: center;
     -webkit-mask-repeat: no-repeat;
             mask-repeat: no-repeat;
     -webkit-mask-size: contain;
@@ -446,15 +452,17 @@ body {
   .l-nav-global__link-order::after {
     content: "";
     display: block;
+    -webkit-mask-position: center;
+            mask-position: center;
     -webkit-mask-repeat: no-repeat;
             mask-repeat: no-repeat;
     -webkit-mask-size: contain;
             mask-size: contain;
     position: absolute;
-    height: 2.5vw;
-    left: 2.2vw;
-    top: 1.2vw;
-    width: 2.5vw;
+    height: 1.3vw;
+    left: 0.7vw;
+    top: 0;
+    width: 1.3vw;
   }
 }
 /*
@@ -492,12 +500,8 @@ body {
   position: absolute;
 }
 .p-home-main-copy__text::after {
-  background-color: #fcf8bd;
-  bottom: 0;
   content: "";
   display: block;
-  -webkit-mask: url("../images/bg_illust_wine.svg");
-          mask: url("../images/bg_illust_wine.svg");
   -webkit-mask-position: center;
           mask-position: center;
   -webkit-mask-repeat: no-repeat;
@@ -505,6 +509,11 @@ body {
   -webkit-mask-size: contain;
           mask-size: contain;
   position: absolute;
+  background-color: #fcf8bd;
+  -webkit-mask: url("../images/bg_illust_wine.svg");
+          mask: url("../images/bg_illust_wine.svg");
+  height: 100%;
+  width: 100%;
 }
 .p-home-main-copy__main {
   background: url("../images/bg_line_KARI.svg") center 100% no-repeat;
@@ -599,9 +608,9 @@ body {
     top: 65vh;
   }
   .p-home-main-copy__text::after {
-    height: 15vw;
-    transform: translate(73vw, -2vw);
-    width: 15vw;
+    height: 15.08vw;
+    transform: translate(75vw, -17vw);
+    width: 11.6vw;
   }
   .p-home-main-copy__main::before {
     height: 10vw;
@@ -636,9 +645,9 @@ body {
     top: 134px;
   }
   .p-home-main-copy__text::after {
-    height: 8vw;
-    transform: translate(0vw, 10vw);
-    width: 8vw;
+    height: 7.93vw;
+    transform: translate(1vw, 2vw);
+    width: 6.1vw;
   }
   .p-home-main-copy__main {
     letter-spacing: -0.1em;
