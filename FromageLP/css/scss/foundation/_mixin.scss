@@ -73,7 +73,6 @@
 	position: absolute;
 	@if($color!=null) { background-color: $color; }
 	@if($svg!=null) { mask: url($svg); }
-
 	@if($rotate!=null) { transform: rotate($rotate); }
 	@if($height!=null) { height: $height; }
 	@if($left!=null) { left: $left; }

@@ -686,18 +686,15 @@ body {
   display: block;
   position: absolute;
 }
+.p-home-main-visual__photo {
+  position: relative;
+}
 .p-home-main-visual__photo img {
   height: 100%;
 }
 .p-home-main-visual__photo::after {
-  background-color: #fcf8bd;
-  bottom: 0;
   content: "";
   display: block;
-  height: 11vw;
-  left: 0;
-  -webkit-mask: url("../images/bg_illust_flower.svg");
-          mask: url("../images/bg_illust_flower.svg");
   -webkit-mask-position: center;
           mask-position: center;
   -webkit-mask-repeat: no-repeat;
@@ -705,7 +702,13 @@ body {
   -webkit-mask-size: contain;
           mask-size: contain;
   position: absolute;
-  width: 11vw;
+  background-color: #fcf8bd;
+  -webkit-mask: url("../images/bg_illust_flower.svg");
+          mask: url("../images/bg_illust_flower.svg");
+  height: 100%;
+  width: 100%;
+  height: 10.881vw;
+  width: 9vw;
 }
 
 /* for Phones,Tablets */
@@ -730,7 +733,7 @@ body {
     width: 93vw;
   }
   .p-home-main-visual__photo::after {
-    transform: translate(-5vw, -12vh) scale(1, -1) rotate(192deg);
+    transform: translate(-4vw, -18vh) scale(1, -1) rotate(192deg);
   }
 }
 /* for Laptops,Desktops  */
@@ -748,12 +751,8 @@ body {
     width: 41.4vw;
   }
   .p-home-main-visual::after {
-    background-color: #fcf8bd;
     content: "";
     display: block;
-    height: 8vw;
-    -webkit-mask: url("../images/bg_illust_flower.svg");
-            mask: url("../images/bg_illust_flower.svg");
     -webkit-mask-position: center;
             mask-position: center;
     -webkit-mask-repeat: no-repeat;
@@ -761,15 +760,20 @@ body {
     -webkit-mask-size: contain;
             mask-size: contain;
     position: absolute;
-    top: 0;
-    transform: translate(32.8vw, -2.3vw) scale(-1, 1) rotate(-25deg);
-    width: 8vw;
+    background-color: #fcf8bd;
+    -webkit-mask: url("../images/bg_illust_flower.svg");
+            mask: url("../images/bg_illust_flower.svg");
+    height: 100%;
+    width: 100%;
+    height: 7.8585vw;
+    transform: translate(33.5vw, -42.25vw) scale(-1, 1) rotate(-25deg);
+    width: 6.5vw;
   }
   .p-home-main-visual__photo img {
     width: 100%;
   }
   .p-home-main-visual__photo::after {
-    transform: translate(-4vw, 2.2vw);
+    transform: translate(-3vw, -9vw);
   }
 }
 .p-scrolled {

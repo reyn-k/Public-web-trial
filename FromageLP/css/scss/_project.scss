@@ -257,22 +257,14 @@
 		// top: 4px;
 		}
 	&__photo {
+		position: relative;
 		img {
 			height: 100%;
 			}
 		&::after {
-			background-color: #fcf8bd;
-			bottom: 0;
-			content: '';
-			display: block;
-			height: 11vw;
-			left: 0;
-			mask: url('../images/bg_illust_flower.svg');
-			mask-position: center;
-			mask-repeat: no-repeat;
-			mask-size: contain;
-			position: absolute;
-			width: 11vw;
+			@include foundation.svgBgImage ( $color: #fcf8bd, $svg: '../images/bg_illust_flower.svg', $position: center);
+			height: calc(9vw * 1.209);
+			width: 9vw;
 			}
 		}
 	}
@@ -296,7 +288,7 @@
 			position: absolute;
 			width: 93vw;
 			&::after {
-				transform: translate(-5vw, -12vh) scale(1, -1) rotate(192deg);
+				transform: translate(-4vw, -18vh) scale(1, -1) rotate(192deg);
 				}
 			}
 
@@ -318,25 +310,17 @@
 			width: 41.4vw;
 			}
 		&::after {
-			background-color: #fcf8bd;
-			content: '';
-			display: block;
-			height: 8vw;
-			mask: url('../images/bg_illust_flower.svg');
-			mask-position: center;
-			mask-repeat: no-repeat;
-			mask-size: contain;
-			position: absolute;
-			top: 0;
-			transform: translate(32.8vw, -2.3vw) scale( -1, 1) rotate(-25deg);
-			width: 8vw;
+			@include foundation.svgBgImage ( $color: #fcf8bd, $svg: '../images/bg_illust_flower.svg', $position: center);
+			height: calc(6.5vw * 1.209);
+			transform: translate(33.5vw, -42.25vw) scale( -1, 1) rotate(-25deg);
+			width: 6.5vw;
 			}
 		&__photo {
 			img {
 				width: 100%;
 				}
 			&::after {
-				transform: translate(-4vw, 2.2vw);
+				transform: translate(-3vw, -9vw);
 				}
 			}
 		}
