@@ -17,9 +17,13 @@ $D_margin-LR: 30px; //Desktopの基本左右margin
 	'Hiragino Mincho ProN',
 	'Hiragino Mincho Pro',
 	'Yu Mincho';
+	--font-size_home-nav-global_Desktop: 1.4vw;
+	--font-size_nav-global_Desktop: 1vw;
 	--margin_contents-center: calc(calc(100vw - 980px) /2); /* Desktop コンテンツの左右margin (margin:autoを使用しない場合向け) */
+	--padding_home-nav-global_Desktop: 0 2.6vw;
+	--padding_nav-global_Desktop: 0 3.38vw;
 	--root_font-size: 16; /* Desktop 本文フォントサイズ用変数 */
-	--z-index_nav-global: 900; /* グローバルナビ */
+	--z-index_nav-global: 900; /* グローバルナビ z-index */
 
 	}
 /* <<<<<<<<<< custom properties */

@@ -2,6 +2,11 @@
 
 @use 'foundation';
 
+body {
+	background: url('../images/bg_bubble_KARI.svg') no-repeat fixed,
+	url('../images/bg-png8-w_KARI.webp') no-repeat fixed left/60vw;
+}
+
 
 /*
  * navi-global
@@ -36,7 +41,6 @@
 		}
 	}
 	&__link {
-		font-size: 1.4vw;
 		&-order {
 			text-align: center;
 			&::before {
@@ -58,6 +62,62 @@
 				@include foundation.svgBgImage ( $color: #fcf8bd, $svg: '../images/bg_3line.svg');
 				}
 			}
+		}
+	}
+	// .animated:not(.scrolled) .l-nav-global__link {
+	// 	animation: nav-global_fade__link 1s reverse forwards;
+	// }
+	// .animated:not(.scrolled) .l-nav-global__item {
+	// 	animation: nav-global_fade__item 1s reverse forwards;
+	// }
+	// .scrolled .l-nav-global__link {
+	// 	animation: nav-global_fade__link 1s forwards;
+	// }
+	// .scrolled .l-nav-global__item {
+	// 	animation: nav-global_fade__item 1s forwards;
+	// }
+.home-nav-global:not(.scrolled, .animated) .l-nav-global__link {
+	font-size: var(--font-size_home-nav-global_Desktop);
+}
+.home-nav-global:not(.scrolled, .animated) .l-nav-global__item {
+	padding: var(--padding_home-nav-global_Desktop);
+}
+	.scrolled:not(.animated, .home-nav-global) .l-nav-global__link {
+		animation: nav-global_fade__link .5s forwards;
+	}
+	.scrolled:not(.animated, .home-nav-global) .l-nav-global__item {
+		animation: nav-global_fade__item .5s forwards;
+	}
+	.animated:not(.home-nav-global) .l-nav-global__link {
+		font-size: var(--font-size_nav-global_Desktop);
+	}
+	.animated:not(.home-nav-global) .l-nav-global__item {
+		padding: var(--padding_nav-global_Desktop);
+	}
+	.home-nav-global.scrolled .l-nav-global__link {
+		animation: nav-global_fade__link .3s reverse;
+	}
+	.home-nav-global.scrolled .l-nav-global__item {
+		animation: nav-global_fade__item .3s reverse;
+	}
+
+	@keyframes nav-global_fade__link {
+		0% {
+			font-size: var(--font-size_home-nav-global_Desktop);
+		}
+
+		100% {
+			font-size: var(--font-size_nav-global_Desktop);
+		}
+	}
+
+	@keyframes nav-global_fade__item {
+		0% {
+			padding: var(--padding_home-nav-global_Desktop)
+		}
+
+		100% {
+			padding: var(--padding_nav-global_Desktop)
 		}
 	}
 
@@ -110,7 +170,7 @@
 		.l-nav-global {
 			height: 7vh;
 			&__item {
-				padding: 0 2.6vw;
+				// padding: 0 2.6vw;
 				&-order {
 					position: relative;
 					height: 10vw;
@@ -123,7 +183,7 @@
 				}
 			}
 			&__link {
-				font-size: 1.4vw;
+				// font-size: 1.4vw;
 				&-order {
 				font-size: 2vw;
 				span {
@@ -147,6 +207,12 @@
 						@include foundation.svgBgImage ( $height: 1.3vw, $left: .7vw, $top: 0, $width: 1.3vw );
 						}
 				}
+			}
+			.animated.scrolled .l-nav-global__item {
+				font-size: 1vw;
+			}
+			.animated.scrolled .l-nav-global__link {
+				padding: 0 3.338vw;
 			}
 		}
 	}
