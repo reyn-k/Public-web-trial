@@ -237,9 +237,13 @@ th {
   "Hiragino Mincho ProN",
   "Hiragino Mincho Pro",
   "Yu Mincho";
+  --font-size_home-nav-global_Desktop: 1.4vw;
+  --font-size_nav-global_Desktop: 1vw;
   --margin_contents-center: calc(calc(100vw - 980px) /2); /* Desktop コンテンツの左右margin (margin:autoを使用しない場合向け) */
+  --padding_home-nav-global_Desktop: 0 2.6vw;
+  --padding_nav-global_Desktop: 0 3.38vw;
   --root_font-size: 16; /* Desktop 本文フォントサイズ用変数 */
-  --z-index_nav-global: 900; /* グローバルナビ */
+  --z-index_nav-global: 900; /* グローバルナビ z-index */
 }
 
 /* <<<<<<<<<< custom properties */
@@ -259,6 +263,10 @@ body {
 }
 
 .JS_WEB-FONT { /**/ }
+
+body {
+  background: url("../images/bg_bubble_KARI.svg") no-repeat fixed, url("../images/bg-png8-w_KARI.webp") no-repeat fixed left/60vw;
+}
 
 /*
  * navi-global
@@ -304,9 +312,6 @@ body {
   top: calc(-52% + 3.5vh);
   width: 100%;
 }
-.l-nav-global__link {
-  font-size: 1.4vw;
-}
 .l-nav-global__link-order {
   text-align: center;
 }
@@ -340,6 +345,54 @@ body {
   width: 100%;
 }
 
+.home-nav-global:not(.scrolled, .animated) .l-nav-global__link {
+  font-size: var(--font-size_home-nav-global_Desktop);
+}
+
+.home-nav-global:not(.scrolled, .animated) .l-nav-global__item {
+  padding: var(--padding_home-nav-global_Desktop);
+}
+
+.scrolled:not(.animated, .home-nav-global) .l-nav-global__link {
+  animation: nav-global_fade__link 0.5s forwards;
+}
+
+.scrolled:not(.animated, .home-nav-global) .l-nav-global__item {
+  animation: nav-global_fade__item 0.5s forwards;
+}
+
+.animated:not(.home-nav-global) .l-nav-global__link {
+  font-size: var(--font-size_nav-global_Desktop);
+}
+
+.animated:not(.home-nav-global) .l-nav-global__item {
+  padding: var(--padding_nav-global_Desktop);
+}
+
+.home-nav-global.scrolled .l-nav-global__link {
+  animation: nav-global_fade__link 0.3s reverse;
+}
+
+.home-nav-global.scrolled .l-nav-global__item {
+  animation: nav-global_fade__item 0.3s reverse;
+}
+
+@keyframes nav-global_fade__link {
+  0% {
+    font-size: var(--font-size_home-nav-global_Desktop);
+  }
+  100% {
+    font-size: var(--font-size_nav-global_Desktop);
+  }
+}
+@keyframes nav-global_fade__item {
+  0% {
+    padding: var(--padding_home-nav-global_Desktop);
+  }
+  100% {
+    padding: var(--padding_nav-global_Desktop);
+  }
+}
 /* for Phones,Tablets */
 @media (max-width: 979px) {
   .l-nav-global {
@@ -408,9 +461,6 @@ body {
   .l-nav-global {
     height: 7vh;
   }
-  .l-nav-global__item {
-    padding: 0 2.6vw;
-  }
   .l-nav-global__item-order {
     position: relative;
     height: 10vw;
@@ -430,9 +480,6 @@ body {
     height: 100%;
     left: calc(50% - 0.6vw);
     width: 1.2vw;
-  }
-  .l-nav-global__link {
-    font-size: 1.4vw;
   }
   .l-nav-global__link-order {
     font-size: 2vw;
@@ -464,13 +511,18 @@ body {
     top: 0;
     width: 1.3vw;
   }
+  .l-nav-global .animated.scrolled .l-nav-global__item {
+    font-size: 1vw;
+  }
+  .l-nav-global .animated.scrolled .l-nav-global__link {
+    padding: 0 3.338vw;
+  }
 }
 /*
  * Home
  * -------------------------------------------------------------------
  */
 .p-home {
-  background: url("../images/bg_bubble_KARI.svg") no-repeat fixed, url("../images/bg-png8-w_KARI.webp") no-repeat fixed;
   height: 100vh;
   position: relative;
 }
@@ -741,7 +793,6 @@ body {
   .p-home-main-visual {
     height: 39.85vw;
     left: 52.7vw;
-    position: absolute;
     top: 5.8vw;
     width: 39.85vw;
   }
@@ -800,4 +851,135 @@ body {
   top: calc(50% - 1px);
   transform-origin: right center;
   width: 11vh;
+}
+
+/*
+ * About
+ * -------------------------------------------------------------------
+ */
+.p-about {
+  position: relative;
+}
+
+/* for Laptops,Desktops  */
+@media (min-width: 980px) {
+  .p-about {
+    margin-top: 15vw;
+    height: 57.25vw;
+  }
+}
+.p-about-main-visual {
+  position: absolute;
+  top: 0;
+}
+.p-about-main-visual::before {
+  background-color: rgba(252, 222, 189, 0.6);
+  content: "";
+  display: block;
+  position: absolute;
+}
+.p-about-main-visual__photo {
+  position: relative;
+  transform: rotate(1.8deg);
+}
+.p-about-main-visual__photo img {
+  height: 100%;
+}
+
+/* for Phones,Tablets */
+@media (max-width: 979px) {
+  .p-about-main-visual {
+    height: 80vh;
+    overflow: hidden;
+    width: 100vw;
+  }
+  .p-about-main-visual::before {
+    height: 100%;
+    height: 75vh;
+    transform: translate(7vw, -3vw) scale(105%) rotate(2.8deg);
+    width: 93vw;
+  }
+  .p-about-main-visual__photo {
+    height: 75vh;
+    left: 7vw;
+    overflow: hidden;
+    position: absolute;
+    width: 93vw;
+  }
+}
+/* for Laptops,Desktops  */
+@media (min-width: 980px) {
+  .p-about-main-visual {
+    height: 39.85vw;
+    left: 10vw;
+    top: 5.8vw;
+    width: 39.85vw;
+  }
+  .p-about-main-visual::before {
+    height: 40vw;
+    transform: translate(-0.8vw, -0.4vw) rotate(-5.4deg);
+    width: 40vw;
+  }
+  .p-about-main-visual__photo img {
+    width: 100%;
+    transform: rotate(-1.8deg);
+  }
+}
+.p-about-message {
+  background-color: #f7f4ed;
+  position: absolute;
+  font-family: var(--font-family_serif);
+  letter-spacing: 0.2em;
+}
+.p-about-message__title {
+  font-feature-settings: "palt";
+}
+.p-about-message__title span {
+  font-size: 80%;
+}
+.p-about-message__title strong {
+  font-size: 135%;
+  font-weight: normal;
+}
+
+/* for Laptops,Desktops  */
+@media (min-width: 980px) {
+  .p-about-message {
+    left: 46.85vw;
+    top: 11.6vw;
+    width: 39.85vw;
+    min-height: 39.85vw;
+  }
+  .p-about-message__logo {
+    position: absolute;
+    left: 2vw;
+    top: -2vw;
+  }
+  .p-about-message__title {
+    margin: 10vw 1em 2vw 17.5vw;
+    line-height: 1.7em;
+  }
+  .p-about-message__title strong {
+    letter-spacing: 0.1em;
+  }
+  .p-about-message__text {
+    margin: 0 auto 2em;
+    line-height: 2em;
+    width: 17.7em;
+  }
+}
+/* for Laptops,Desktops  */
+@media (min-width: 980px) {
+  .p-about-logo__image img {
+    width: 15.625vw;
+    height: 15.625vw;
+  }
+}
+/*
+ * Point
+ * -------------------------------------------------------------------
+ */
+.p-point {
+  margin-top: 20vw;
+  height: 100vh;
 }

@@ -160,8 +160,157 @@
   </script>
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" async></script>
 
+  <script>
+    // >>>> スクロール位置で要素のアニメーションを開始させるスクリプト
+    document.addEventListener('DOMContentLoaded', function () {
+      const scrollElements = document.querySelectorAll('.js-scroll'); //ターゲット指定
+
+      const elementInView = (el, dividend = 1) => {
+        const elementTop = el.getBoundingClientRect().top;
+        return (
+          elementTop <=
+          (window.innerHeight || document.documentElement.clientHeight) / dividend
+        );
+      };
+      const elementOutofView = (el) => {
+        const elementTop = el.getBoundingClientRect().top; //ページの上部から要素の距離を取得
+        return (
+          elementTop > (window.innerHeight || document.documentElement.clientHeight) //ビューポートの高さを取得
+        );
+      };
+      const displayScrollElement = (element) => {
+        element.classList.add('scrolled'); //スクロールで表示されたら要素にクラス名を割り当てる
+      };
+      const hideScrollElement = (element) => {
+        element.classList.remove('scrolled');//スクロールで非表示になったら要素からクラス名を除去する
+      };
+      const handleScrollAnimation = () => {
+        scrollElements.forEach((el) => {
+          if (elementInView(el, 1.25)) {
+            displayScrollElement(el);
+          }
+          else if (elementOutofView(el)) {
+            hideScrollElement(el)
+          }
+        })
+      }
+
+      window.addEventListener('scroll', () => {
+        ;
+        handleScrollAnimation();
+      });
+    });
+    // <<<< スクロール位置で要素のアニメーションを開始させるスクリプト
+  </script>
+
+  <script>
+    //  >>>> ページ内リンクのスムーススクロール、「ページTOP」ボタンの表示用スクリプト
+    // イージング関数
+    let ease = {
+      easeInOut: function (t) { return t < .5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1; } //もう少しスムーズに
+    }
+
+    // アニメーションの Duration の設定
+    let duration = 700;
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // スムーススクロールのトリガーを取得（IE11はNodeListでforEachが使えないので、[].slice.call()により配列に変換）
+      let scrollTrigger = [].slice.call(document.querySelectorAll('a[href^="#"]'));
+
+      scrollTrigger.forEach(function (st) {
+        // トリガーをクリックした時に実行
+        st.addEventListener('click', function (e) {
+          // href属性の値を取得
+          let href = st.getAttribute('href');
+          // 現在のスクロール位置を取得（クロスブラウザに対応）
+          let currentPostion = document.documentElement.scrollTop || document.body.scrollTop;
+          // スクロール先の要素を取得
+          let targetElement = document.getElementById(href.replace('#', ''));
+
+          // スクロール先の要素が存在する場合はスムーススクロールを実行
+          if (targetElement) {
+            // デフォルトのイベントアクションをキャンセル
+            e.preventDefault();
+            e.stopPropagation();
+            // スクロール先の要素の位置を取得
+            let targetPosition = window.pageYOffset + targetElement.getBoundingClientRect().top - 115; // headerと余白の分だけずらす
+            // スタート時点の時間を取得
+            let startTime = performance.now();
+
+            // アニメーションのループを定義
+            const loop = function (nowTime) {
+              // スタートからの経過時間を取得
+              let time = nowTime - startTime;
+              // duration を1とした場合の経過時間を計算
+              let normalizedTime = time / duration;
+
+              // duration に経過時間が達していない場合はアニメーションを実行
+              if (normalizedTime < 1) {
+                // 経過時間とイージングに応じてスクロール位置を変更
+                window.scrollTo(0, currentPostion + ((targetPosition - currentPostion) * ease.easeInOut(normalizedTime)));
+                // アニメーションを継続
+                requestAnimationFrame(loop);
+                // duration に経過時間が達したら、アニメーションを終了
+              } else {
+                window.scrollTo(0, targetPosition);
+              }
+            }
+
+            // アニメーションをスタート
+            requestAnimationFrame(loop);
+          }
+        });
+      });
+
+      // navi-globalの表示を切り替え
+      let naviGlobalEl = document.getElementById('navi-global');
+      let naviGlobalElC0 = document.getElementById('js-navi-global-c0');
+      window.addEventListener('scroll', function () {
+        //ページをスクロールすると表示、ページ上部では非表示
+        let scrollTop = document.documentElement.scrollTop;
+        if (scrollTop > 100) {
+          naviGlobalEl.classList.remove('home-nav-global'); //スクロールで表示されたら要素にクラス名を割り当てる
+          naviGlobalEl.classList.add('scrolled'); //スクロールで表示されたら要素にクラス名を割り当てる
+          naviGlobalElC0.addEventListener('animationend', function () {
+            naviGlobalEl.classList.add('animated');
+            naviGlobalEl.classList.remove('scrolled'); //スクロールで表示されたら要素にクラス名を割り当てる
+            window.requestAnimationFrame(function (time) {
+              window.requestAnimationFrame(function (time) {
+                naviGlobalEl.classList.add('scrolled'); //スクロールで表示されたら要素にクラス名を割り当てる
+              });
+            });
+          })
+          // naviGlobalEl.style.animation = 'nav-global_fade 4s both';
+        }
+        else {
+          // naviGlobalEl.classList.remove('animated'); //スクロールで表示されたら要素にクラス名を割り当てる
+          naviGlobalEl.classList.add('home-nav-global'); //スクロールで表示されたら要素にクラス名を割り当てる
+          naviGlobalElC0.addEventListener('animationend', function () {
+            naviGlobalEl.classList.remove('scrolled'); //スクロールで表示されたら要素にクラス名を割り当てる
+            naviGlobalEl.classList.remove('animated');
+            window.requestAnimationFrame(function (time) {
+              window.requestAnimationFrame(function (time) {
+                naviGlobalEl.classList.remove('scrolled'); //スクロールで表示されたら要素にクラス名を割り当てる
+              });
+            });
+          })
+        }
+        // let elOp = document.defaultView.getComputedStyle(goToPageTopEl, null).opacity;
+        // if (scrollTop > 100 && elOp == '0') {
+        //   goToPageTopEl.style.opacity = '1';
+        //   goToPageTopEl.style.transition = 'opacity 1s';
+        // }
+        // else if (scrollTop <= 100 && elOp == '1') {
+        //   goToPageTopEl.style.opacity = '0';
+        // }
+      });
+
+    });
+    //  <<<< ページ内リンクのスムーススクロール、「ページTOP」ボタンの表示用スクリプト
+  </script>
+
   <!-- ページごとにhtmlは分けないので、single.cssは作らない -->
-  <link rel="stylesheet" href="./css/style.css?09014a">
+  <link rel="stylesheet" href="./css/style.css?0924a">
 
   <meta name="description" content="ページの説明文">
   <meta property="og:title" content="チーズの定期便〝プティ・ボン・プティ - Petit Bon Petit〟">
@@ -202,11 +351,12 @@
       </picture>
     </div>
   </section>
+
   <!-- class toggleでnavは使い回す -->
-  <nav class="l-nav-global home-nav-global">
+  <nav id="navi-global" class="l-nav-global home-nav-global">
     <ul class="l-nav-global__menu JS_WEB-FONT">
-      <li class="l-nav-global__item"><a class="l-nav-global__link">概要</a></li>
-      <li class="l-nav-global__item"><a class="l-nav-global__link">ポイント</a></li>
+      <li class="l-nav-global__item" id="js-navi-global-c0"><a class="l-nav-global__link">概要</a></li>
+      <li class="l-nav-global__item"><a class="l-nav-global__link" href="#point">ポイント</a></li>
       <li class="l-nav-global__item"><a class="l-nav-global__link">ご利用シーン</a></li>
       <li class="l-nav-global__item"><a class="l-nav-global__link">お届け内容</a></li>
       <li class="l-nav-global__item"><a class="l-nav-global__link">コース</a></li>
@@ -214,7 +364,35 @@
       <li class="l-nav-global__item-order"><a class="l-nav-global__link-order JS_SPLIT-TEXT">お申込み</a></li>
     </ul>
   </nav>
-  <!-- <div class="p-scrolled">Scrolled</div> -->
+  <div class="p-scrolled">Scrolled</div>
+
+  <section id="about" class="p-about js-scroll">
+    <div class="p-about-main-visual">
+      <picture class="p-about-main-visual__photo">
+        <source>
+        <img src="./images/image_About_KARI.webp" alt="">
+      </picture>
+    </div>
+    <div class="p-about-message">
+      <p class="p-about-message__logo">
+        <picture class="p-about-logo__image">
+          <source>
+          <img src="./images/logo_Petit-Bon-Petit_About_KARI.webp" alt="">
+        </picture>
+      </p>
+      <h2 class="p-about-message__title"><span>チーズの定期便</span><br>「<strong>プティ・ボン・プティ</strong>」は、</h2>
+      <p class="p-about-message__text">毎月1回、<br>
+        ステキなひと皿ができあがる<br>
+        とっておきのチーズが届きます。</p>
+
+      <p class="p-about-message__text">〝ちょっといつもと違う<br>
+        おしゃれで美味しいもの〟を、<br>
+        少しずつ楽しむのに<br>
+        ぴったりなサービスです。</p>
+    </div>
+  </section>
+  <section id="point" class="p-point">point
+  </section>
 </body>
 
 </html>
