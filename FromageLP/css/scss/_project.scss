@@ -32,7 +32,7 @@
 
 .p-home-main-copy {
 	position: relative;
-	z-index: calc( var(--z-index_nav-global) - 1 );
+	z-index: calc( var(--z-index_nav-global) - 20 );
 	&__title {
 		position: absolute;
 		}
@@ -337,6 +337,7 @@
 	position: fixed;
 	transform: rotate(90deg);
 	transform-origin: right bottom;
+	z-index: calc( var(--z-index_nav-global) - 10 );
 	// &::before {
 	// 	display: inline-block;
 	// 	color: #888;
@@ -376,7 +377,7 @@
 
 @include foundation.mediaDesktop {
 	.p-about {
-		margin-top: 15vw;
+		margin-top: calc(7vh + 10vw);
 		// max( homeのビジュアルのtop+height+下の余裕※仮, Homeの高さ+オレンジ部分※仮)
 		//top: max(calc(5.8vw + 39.85vw + 5.8vw), calc(100vh + 2vw ));
 		// height: ビジュアルのheight+top+メッセージコンテナのtop
