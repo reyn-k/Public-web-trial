@@ -64,41 +64,36 @@ body {
 			}
 		}
 	}
-	// .animated:not(.scrolled) .l-nav-global__link {
-	// 	animation: nav-global_fade__link 1s reverse forwards;
-	// }
-	// .animated:not(.scrolled) .l-nav-global__item {
-	// 	animation: nav-global_fade__item 1s reverse forwards;
-	// }
-	// .scrolled .l-nav-global__link {
-	// 	animation: nav-global_fade__link 1s forwards;
-	// }
-	// .scrolled .l-nav-global__item {
-	// 	animation: nav-global_fade__item 1s forwards;
-	// }
+
+	// DTでこう 09-25
+// 	.l-nav-global__menu {
+//     column-gap: 5vw;
+//     margin-left: 30px;
+// }
+
 .home-nav-global:not(.scrolled, .animated) .l-nav-global__link {
 	font-size: var(--font-size_home-nav-global_Desktop);
 }
-.home-nav-global:not(.scrolled, .animated) .l-nav-global__item {
-	padding: var(--padding_home-nav-global_Desktop);
+.home-nav-global:not(.scrolled, .animated) .l-nav-global__menu {
+	column-gap: var(--c-gap_home-nav-global_Desktop);
 }
 	.scrolled:not(.animated, .home-nav-global) .l-nav-global__link {
 		animation: nav-global_fade__link .5s forwards;
 	}
-	.scrolled:not(.animated, .home-nav-global) .l-nav-global__item {
-		animation: nav-global_fade__item .5s forwards;
+	.scrolled:not(.animated, .home-nav-global) .l-nav-global__menu {
+		animation: nav-global_fade__menu .5s forwards;
 	}
 	.animated:not(.home-nav-global) .l-nav-global__link {
 		font-size: var(--font-size_nav-global_Desktop);
 	}
-	.animated:not(.home-nav-global) .l-nav-global__item {
-		padding: var(--padding_nav-global_Desktop);
+	.animated:not(.home-nav-global) .l-nav-global__menu {
+		column-gap: var(--c-gap_nav-global_Desktop);
 	}
 	.home-nav-global.scrolled .l-nav-global__link {
 		animation: nav-global_fade__link .3s reverse;
 	}
-	.home-nav-global.scrolled .l-nav-global__item {
-		animation: nav-global_fade__item .3s reverse;
+	.home-nav-global.scrolled .l-nav-global__menu {
+		animation: nav-global_fade__menu .3s reverse;
 	}
 
 	@keyframes nav-global_fade__link {
@@ -111,13 +106,13 @@ body {
 		}
 	}
 
-	@keyframes nav-global_fade__item {
+	@keyframes nav-global_fade__menu {
 		0% {
-			padding: var(--padding_home-nav-global_Desktop)
+			column-gap: var(--c-gap_home-nav-global_Desktop);
 		}
 
 		100% {
-			padding: var(--padding_nav-global_Desktop)
+			column-gap: var(--c-gap_nav-global_Desktop);
 		}
 	}
 
@@ -169,6 +164,9 @@ body {
 	@include foundation.mediaDesktop {
 		.l-nav-global {
 			height: 7vh;
+			&__menu {
+    margin-left: 30px;
+			}
 			&__item {
 				// padding: 0 2.6vw;
 				&-order {
@@ -208,11 +206,11 @@ body {
 						}
 				}
 			}
-			.animated.scrolled .l-nav-global__item {
-				font-size: 1vw;
-			}
-			.animated.scrolled .l-nav-global__link {
-				padding: 0 3.338vw;
-			}
+			// .animated.scrolled .l-nav-global__item {
+			// 	font-size: 1vw;
+			// }
+			// .animated.scrolled .l-nav-global__link {
+			// 	padding: 0 3.338vw;
+			// } // 09-26
 		}
 	}
