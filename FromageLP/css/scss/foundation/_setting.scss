@@ -5,7 +5,9 @@ $D_margin-LR: 30px; //Desktopの基本左右margin
 /* custom properties >>>>>>>>>> */
 :root {
 	--c-gap_home-nav-global_Desktop: 5vw;
+	--c-gap_home-nav-global_Mobile: 5vw;
 	--c-gap_nav-global_Desktop: 6.575vw;
+	--c-gap_nav-global_Mobile: 6.575vw;
 	--font-family_Klee: Klee,
 	'Klee One',
 	var(--font-family_serif);
@@ -20,7 +22,9 @@ $D_margin-LR: 30px; //Desktopの基本左右margin
 	'Hiragino Mincho Pro',
 	'Yu Mincho';
 	--font-size_home-nav-global_Desktop: 1.4vw;
+	--font-size_home-nav-global_Mobile: 1.4vw;
 	--font-size_nav-global_Desktop: 1vw;
+	--font-size_nav-global_Mobile: 1vw;
 	--margin_contents-center: calc(calc(100vw - 980px) /2); /* Desktop コンテンツの左右margin (margin:autoを使用しない場合向け) */
 	--root_font-size: 16; /* Desktop 本文フォントサイズ用変数 */
 	--z-index_nav-global: 900; /* グローバルナビ z-index */

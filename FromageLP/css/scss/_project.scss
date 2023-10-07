@@ -9,30 +9,25 @@
  */
 
 .p-home {
-	// background: url('../images/bg_bubble_KARI.svg') no-repeat fixed,
-	// url('../images/bg-png8-w_KARI.webp') no-repeat fixed;
-	height: 100vh;
 	position: relative;
 	}
 
 @include foundation.mediaMobile {
 	.p-home {
-		background-position: -65vw calc(100vh - 28vh), left top;
-		background-size: 170vw, 100vh;
+		height: 100vh;
 		}
 	};
 
 @include foundation.mediaDesktop {
 	.p-home {
-		background-position: 4.7vw -1vw, left top;
-		background-size: 84vw, 60.9vw;
+		height: calc(39.85vw + 5.8vw*2);
 		}
 	};
 
 
 .p-home-main-copy {
 	position: relative;
-	z-index: calc( var(--z-index_nav-global) - 20 );
+	z-index: calc( var(--z-index_nav-global) - 30 );
 	&__title {
 		position: absolute;
 		}
@@ -331,13 +326,11 @@
 	color: #ff931e;
 	filter: drop-shadow(1px -1px .5px rgba(255,255,255,1));
 	font-family: var(--font-family_serif);
-	font-size: 1vw;
-	left: calc( 14px + 10px + .8rem );
 	padding-right: calc( 11vh + .4rem );
 	position: fixed;
 	transform: rotate(90deg);
 	transform-origin: right bottom;
-	z-index: calc( var(--z-index_nav-global) - 10 );
+	z-index: calc( var(--z-index_nav-global) - 20 );
 	// &::before {
 	// 	display: inline-block;
 	// 	color: #888;
@@ -358,10 +351,26 @@
 		height: 1px;
 		position: absolute;
 		right: 0;
-		top: calc(50% - 1px);
 		transform-origin: right center;
 		width: 11vh;
 		// filter: drop-shadow(1px -1px .5px rgba(255,255,255,1));
+		}
+	}
+	@include foundation.mediaMobile {
+		.p-scrolled {
+		left: calc(-6vh - .4rem - 1.4vw*5);
+	&::after {
+		top: calc(50%);
+	}
+		}
+	}
+	@include foundation.mediaDesktop {
+		.p-scrolled {
+		left: calc( 14px + 10px + .8rem );
+		font-size: 1vw;
+		&::after {
+			top: calc(50% - 1px);
+		}
 		}
 	}
 
@@ -377,30 +386,17 @@
 
 @include foundation.mediaDesktop {
 	.p-about {
-		margin-top: calc(7vh + 10vw);
-		// max( homeのビジュアルのtop+height+下の余裕※仮, Homeの高さ+オレンジ部分※仮)
-		//top: max(calc(5.8vw + 39.85vw + 5.8vw), calc(100vh + 2vw ));
 		// height: ビジュアルのheight+top+メッセージコンテナのtop
 		height: calc(39.85vw + 5.8vw + 11.6vw);
 	}
 }
 
 .p-about-main-visual {
-	position: absolute;
-	top: 0;
 	&::before {
 		background-color: rgba($color: #fcdebd, $alpha: .6);
 		content: '';
 		display: block;
-		position: absolute;
 		// top: 4px;
-		}
-	&__photo {
-		position: relative;
-		transform: rotate(1.8deg);
-		img {
-			height: 100%;
-			}
 		}
 	}
 
@@ -408,21 +404,26 @@
 
 @include foundation.mediaMobile {
 	.p-about-main-visual {
-		height: 80vh;
-		overflow: hidden;
-		width: 100vw;
+		position: relative;
+		height: 74.13vw;
+		width: 74.13vw;
+		transform: translate(12vw, -50%);
 		&::before {
-			height: 100%;
-			height: 75vh;
-			transform: translate(7vw, -3vw) scale(105%) rotate(2.8deg);
-			width: 93vw;
+			transform: scale(102%) rotate(-5.4deg);
+			height: 74.13vw;
+			width: 74.13vw;
 			}
 		&__photo {
-			height: 75vh;
-			left: 7vw;
-			overflow: hidden; // これだけだと、オレンジ矩形が表示されないかも　これないとbodyの背景が小さくなる
-			position: absolute;
-			width: 93vw;
+			// left: 7vw;
+			// overflow: hidden; // これだけだと、オレンジ矩形が表示されないかも　これないとbodyの背景が小さくなる
+			// position: absolute;
+			img {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				transform: rotate(-1.8deg);
+				}
 			}
 
 		}
@@ -430,6 +431,7 @@
 
 @include foundation.mediaDesktop {
 	.p-about-main-visual {
+		position: relative;
 		height: 39.85vw;
 		// width: 44.535vw; // padding必要ならこの値
 		left: 10vw;
@@ -444,6 +446,9 @@
 		&__photo {
 			img {
 				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
 				transform: rotate(-1.8deg);
 				}
 			}
@@ -451,8 +456,8 @@
 	}
 
 .p-about-message {
+	z-index: calc( var(--z-index_nav-global) - 40 );
 	background-color: #f7f4ed;
-	position: absolute;
 	font-family: var(--font-family_serif);
 	letter-spacing: .2em;
 	&__title {
@@ -461,14 +466,49 @@
 			font-size: 80%;
 		}
 		strong {
-			font-size: 135%;
 			font-weight: normal;
+		}
+	}
+}
+@include foundation.mediaMobile {
+	.p-about-message {
+		width: 100vw;
+		padding: 10vw 0 calc( 15% + 74.13vw*0.45 );
+		clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+		&__logo {
+			display: none;
+		}
+		&__title {
+			font-size: 1.28rem;
+			letter-spacing: .25em;
+			// margin: 10vw 1em 2vw 17.5vw;
+			// line-height: 1.7em;
+			width: 74.13vw;
+			margin: 0 auto;
+			    line-height: 1.8em;
+			transform: translateX( .75em );
+			strong {
+				font-size: 1.8775rem;
+			}
+		}
+		&__text {
+			font-size: 1.28rem;
+			letter-spacing: .25em;
+			width: 74.13vw;
+			margin: 1.8em auto 0;
+			line-height: 1.8em;
+			transform: translateX( .75em );
+		}
+
+		&__text-1 {
+			text-indent: calc( -1em - .25em );
 		}
 	}
 }
 
 @include foundation.mediaDesktop {
 	.p-about-message {
+		position: absolute;
 		left: calc(10vw + 39.85vw - 3vw);
 		top: calc(5.8vw * 2);
 		width: 39.85vw;
@@ -482,6 +522,7 @@
 	margin: 10vw 1em 2vw 17.5vw;
 	line-height: 1.7em;
 	strong {
+		font-size: 135%;
 		letter-spacing: .1em;
 	}
 }
@@ -492,6 +533,7 @@
 }
 	}
 }
+
 
 @include foundation.mediaDesktop {
 	.p-about-logo__image {
