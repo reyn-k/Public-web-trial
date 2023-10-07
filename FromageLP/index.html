@@ -303,14 +303,24 @@
         // else if (scrollTop <= 100 && elOp == '1') {
         //   goToPageTopEl.style.opacity = '0';
         // }
-      });
 
+        const mediaQuery = window.matchMedia('(max-width: 979px)')
+        if (mediaQuery.matches) {
+          if (scrollTop > 100) {
+            // その後、alertを実行
+            // alert('Media Query Matched!')
+          }
+          else {
+          }
+        };
+
+      });
     });
     //  <<<< ページ内リンクのスムーススクロール、「ページTOP」ボタンの表示用スクリプト
   </script>
 
   <!-- ページごとにhtmlは分けないので、single.cssは作らない -->
-  <link rel="stylesheet" href="./css/style.css?0925a">
+  <link rel="stylesheet" href="./css/style.css?1005a">
 
   <meta name="description" content="ページの説明文">
   <meta property="og:title" content="チーズの定期便〝プティ・ボン・プティ - Petit Bon Petit〟">
@@ -330,6 +340,26 @@
 </head>
 
 <body>
+  <header class="l-global__logo">
+    <picture class="l-global-logo__image">
+      <source>
+      <img src="./images/logo_Petit-Bon-Petit_About_KARI.webp" alt="">
+    </picture>
+  </header>
+
+  <!-- class toggleでnavは使い回す -->
+  <nav id="navi-global" class="l-nav-global home-nav-global">
+    <ul class="l-nav-global__menu JS_WEB-FONT">
+      <li class="l-nav-global__item" id="js-navi-global-c0"><a class="l-nav-global__link">概要</a></li>
+      <li class="l-nav-global__item"><a class="l-nav-global__link" href="#point">ポイント</a></li>
+      <li class="l-nav-global__item"><a class="l-nav-global__link">ご利用シーン</a></li>
+      <li class="l-nav-global__item"><a class="l-nav-global__link">お届け内容</a></li>
+      <li class="l-nav-global__item"><a class="l-nav-global__link">コース</a></li>
+      <li class="l-nav-global__item"><a class="l-nav-global__link">よくある質問</a></li>
+      <li class="l-nav-global__item-order"><a class="l-nav-global__link-order JS_SPLIT-TEXT">お申込み</a></li>
+    </ul>
+  </nav>
+
   <section id="home" class="p-home">
     <div class="p-home-main-copy">
       <h1 class="p-home-main-copy__title">
@@ -352,27 +382,9 @@
     </div>
   </section>
 
-  <!-- class toggleでnavは使い回す -->
-  <nav id="navi-global" class="l-nav-global home-nav-global">
-    <ul class="l-nav-global__menu JS_WEB-FONT">
-      <li class="l-nav-global__item" id="js-navi-global-c0"><a class="l-nav-global__link">概要</a></li>
-      <li class="l-nav-global__item"><a class="l-nav-global__link" href="#point">ポイント</a></li>
-      <li class="l-nav-global__item"><a class="l-nav-global__link">ご利用シーン</a></li>
-      <li class="l-nav-global__item"><a class="l-nav-global__link">お届け内容</a></li>
-      <li class="l-nav-global__item"><a class="l-nav-global__link">コース</a></li>
-      <li class="l-nav-global__item"><a class="l-nav-global__link">よくある質問</a></li>
-      <li class="l-nav-global__item-order"><a class="l-nav-global__link-order JS_SPLIT-TEXT">お申込み</a></li>
-    </ul>
-  </nav>
   <div class="p-scrolled">Scrolled</div>
 
   <section id="about" class="p-about js-scroll">
-    <div class="p-about-main-visual">
-      <picture class="p-about-main-visual__photo">
-        <source>
-        <img src="./images/image_About_KARI.webp" alt="">
-      </picture>
-    </div>
     <div class="p-about-message">
       <p class="p-about-message__logo">
         <picture class="p-about-logo__image">
@@ -385,10 +397,16 @@
         ステキなひと皿ができあがる<br>
         とっておきのチーズが届きます。</p>
 
-      <p class="p-about-message__text">〝ちょっといつもと違う<br>
+      <p class="p-about-message__text p-about-message__text-1">〝ちょっといつもと違う<br>
         おしゃれで美味しいもの〟を、<br>
         少しずつ楽しむのに<br>
         ぴったりなサービスです。</p>
+    </div>
+    <div class="p-about-main-visual">
+      <picture class="p-about-main-visual__photo">
+        <source>
+        <img src="./images/image_About_KARI.webp" alt="">
+      </picture>
     </div>
   </section>
   <section id="point" class="p-point">point
