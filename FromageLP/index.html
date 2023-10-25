@@ -320,7 +320,7 @@
   </script>
 
   <!-- ページごとにhtmlは分けないので、single.cssは作らない -->
-  <link rel="stylesheet" href="./css/style.css?1011a">
+  <link rel="stylesheet" href="./css/style.css?1017a">
 
   <meta name="description" content="ページの説明文">
   <meta property="og:title" content="チーズの定期便〝プティ・ボン・プティ - Petit Bon Petit〟">
@@ -350,7 +350,7 @@
   <!-- class toggleでnavは使い回す -->
   <nav id="navi-global" class="l-nav-global home-nav-global">
     <ul class="l-nav-global__menu JS_WEB-FONT">
-      <li class="l-nav-global__item" id="js-navi-global-c0"><a class="l-nav-global__link">概要</a></li>
+      <li class="l-nav-global__item" id="js-navi-global-c0"><a class="l-nav-global__link" href="#about">概要</a></li>
       <li class="l-nav-global__item"><a class="l-nav-global__link" href="#point">ポイント</a></li>
       <li class="l-nav-global__item"><a class="l-nav-global__link">ご利用シーン</a></li>
       <li class="l-nav-global__item"><a class="l-nav-global__link">お届け内容</a></li>
@@ -409,7 +409,35 @@
       </picture>
     </div>
   </section>
-  <section id="point" class="p-point">point
+  <section id="point" class="p-point"><!--h2とulを、#pointの背景の高さに合わせればこれ以上の要素は必要ないはず-->
+    <h2 class="p-point__title">
+      <picture class="p-point-logo__image">
+        <source>
+        <img src="./images/logo_Petit-Bon-Petit_Point_KARI.webp" alt="プティ・ボン・プティ">
+      </picture>
+      <span>の</span><span>ポ</span><span>イ</span><span>ン</span><span>ト</span>
+    </h2>
+    <ul>
+      <li><span>チーズの専門家が厳選した、</span>
+        <strong>色々なタイプのチーズが<br>
+          2〜3種類届きます！</strong>
+      </li>
+      <li><span>チーズのことがわかる</span><br>
+        <strong>情報カード付き！</strong>
+      </li>
+      <li><span>盛り付け方&amp;レシピの</span><br>
+        <strong>リーフレット付き！</strong>
+      </li>
+      <li><span>盛り付けの</span><strong>レクチャー動画も</strong><br>
+        <span>ご覧いただけます！</span>
+        <!-- <figure>
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/NgGw-MJIrb4"
+            title="プティ・ボン・プティ - 盛り付けレクチャー動画サンプル [YouTube]" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </figure> -->
+      </li>
+    </ul>
   </section>
 </body>
 
