@@ -555,4 +555,8 @@
 .p-point {
 	margin-top: 20vw;
 	height: 100vh;
+	background:
+	url("../images/bg_Point_base.webp") center top / 140vh 100vh no-repeat,
+	url("../images/bg_Point_margin-area.webp") left top / 100vw 100vh no-repeat;
 }
+/*他のcss見ると、幅は固定ではなく横幅に応じて、かなSS*/
