@@ -1120,3 +1120,32 @@ body {
 }
 
 /*他のcss見ると、幅は固定ではなく横幅に応じて、かなSS*/
+/* for Laptops,Desktops  */
+@media (min-width: 980px) {
+  .p-point__title {
+    position: absolute;
+  }
+  .p-point__list {
+    position: relative;
+    width: 140vh;
+    margin: 0 auto;
+  }
+  .p-point-1__image img {
+    position: absolute;
+    top: 69px;
+    left: 3px;
+    width: 76.1206896552vh;
+  }
+  .p-point-2__image img {
+    position: absolute;
+    top: 138px;
+    left: 406px;
+    width: 71.0459770115vh;
+  }
+  .p-point-3__image img {
+    position: absolute;
+    top: 270px;
+    left: 126px;
+    width: 76.1206896552vh;
+  }
+}

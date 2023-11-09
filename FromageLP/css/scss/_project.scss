@@ -560,3 +560,48 @@
 	url("../images/bg_Point_margin-area.webp") left top / 100vw 100vh no-repeat;
 }
 /*他のcss見ると、幅は固定ではなく横幅に応じて、かなSS*/
+@include foundation.mediaDesktop {
+	.p-point__title {
+		position: absolute;
+	}
+
+	.p-point__list {
+
+		position: relative;
+	width: 140vh;
+	margin: 0 auto;
+	}
+	.p-point-1__image {
+		img {
+			// mix-blend-mode: difference;
+			position: absolute;
+			top: 69px;
+			left: 3px;
+			// 1392は背景画像のpx数。600はPoint1の画像のpx数。0.883はPont1の画像の大きさをこの数字分小さくすると背景画像の大きさと同じになる。
+			width: calc(calc(100vh / 1392) * 600 * 0.883 *2);
+			// transform: translate();
+		}
+	}
+	.p-point-2__image {
+		img {
+			// mix-blend-mode: difference;
+			position: absolute;
+			top: 138px;
+			left: 406px;
+			// 1392は背景画像のpx数。600はPoint1の画像のpx数。0.883はPont1の画像の大きさをこの数字分小さくすると背景画像の大きさと同じになる。
+			width: calc(calc(100vh / 1392) * 560 * 0.883 *2);
+			// transform: translate();
+		}
+	}
+	.p-point-3__image {
+		img {
+			// mix-blend-mode: difference;
+			position: absolute;
+			top: 270px;
+			left: 126px;
+			// 1392は背景画像のpx数。600はPoint1の画像のpx数。0.883はPont1の画像の大きさをこの数字分小さくすると背景画像の大きさと同じになる。
+			width: calc(calc(100vh / 1392) * 600 * 0.883 *2);
+			// transform: translate();
+		}
+	}
+}
